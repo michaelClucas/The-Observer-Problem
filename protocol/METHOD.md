@@ -37,11 +37,44 @@ run. An edited output destroys the method data.
 
 - `01` Consolidate approaches and map to the common scaffold.
   Prompt: `prompts/01-consolidate-approaches.md`.
-- `02` Adversarial pass over 01. Prompt: `prompts/02-adversary.md`, role
-  card `prompts/00-system-adversary.md`. Runs on a fresh context, never a
-  fork of the target run.
+- `02` Adversarial pass over 01. Prompt: `prompts/02-adversary-v2.md`,
+  role card `prompts/00-system-adversary.md`. Runs on a fresh context,
+  never a fork of the target run, with the withheld inputs enforced by
+  staging rather than by instruction.
 - `03+` Decided after 02 is reviewed. Candidates: per-cluster deep dives,
-  a replication of 01 with the seed docs withheld.
+  a replication of 01 with the seed docs withheld, and a cartography run
+  applying the corrections Run 02 established.
+
+## Prompt versioning
+
+A prompt a run has used is **never edited**, not even to add a note: its
+sha must stay resolvable, so the run's `prompt_commit` keeps meaning what
+it said. A fix forks to a `-v2` file and this section records which
+version is current.
+
+- `prompts/02-adversary.md` is **frozen**. Run 02 used it. It carries no
+  deprecation banner, deliberately, because adding one would change its
+  sha.
+- `prompts/02-adversary-v2.md` is current for adversary runs. What changed
+  and who found each defect is tabulated at the bottom of that file.
+
+## Validation
+
+Every run that produces `OUTPUT.json` is checked with
+
+    python protocol/validate.py runs/<run>/OUTPUT.json
+
+before it is committed, and the result is recorded in the run's
+`REVIEW.md`. The validator checks the contract in
+`protocol/output-schema.md`, never whether a claim is true.
+
+A run may fail a rule deliberately, as Run 01 did on a rule it had no legal
+way to satisfy. Then the failure is declared in `REVIEW.md` and left
+visible. Silent compliance is worse than a declared violation.
+
+Reading an older run against a newer schema is a category error: a run
+declares its `schema_version` and is read against that version. The
+validator does this itself.
 
 Replication is the point of the numbering. Run 01 should be re-run on at
 least two different models before any of its conclusions are built on.

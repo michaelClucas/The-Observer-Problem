@@ -137,22 +137,11 @@ Open questions for Run 01, in priority order:
 
 ## Known gaps in this seed
 
-Candidate clusters not developed above; assess whether each deserves one:
-
-- Wheeler-DeWitt and the problem of time as a cluster in its own right
-  (Isham 1992; Kuchar; Anderson 2017) rather than background to A and B.
-- Boundary-condition proposals for the wavefunction of the universe
-  (Hartle & Hawking 1983; Vilenkin tunneling) and what they assume about
-  observation.
-- Self-locating uncertainty within Everettian branching as a bridge between
-  A and E (Carroll & Sebens 2014).
-- Thermal time and observer-dependent time (Connes & Rovelli; Rovelli &
-  Smerlak).
-- Information-theoretic and thermodynamic limits on physical record-keeping
-  (Landauer-type constraints on what an internal observer can store).
-- Observational cosmology's own treatment of the observer: cosmic variance,
-  the single-realisation problem, and what "ensemble average" means when
-  there is one sky.
+**Moved to `known-gaps.md`.** The list itself is unchanged; only its
+location is. It was split out because the adversary prompt withholds this
+file while asking the adversary to check coverage against the gap list, so
+the list had to live somewhere a run can be given without the seed. See
+`known-gaps.md` for why, and add new gaps there rather than here.
 
 ## Citation warning
 
