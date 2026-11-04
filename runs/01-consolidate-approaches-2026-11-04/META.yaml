@@ -1,0 +1,77 @@
+run: 01-consolidate-approaches
+role: cartographer
+model: "claude-opus-5"
+prompt_path: prompts/01-consolidate-approaches.md
+prompt_commit: "1793d26eab7c878792f063d21426514392cd2d52"   # blob sha of the prompt file
+repo_commit: "d137e6d0b63710a4c62b21131d5b32b1165152cb"     # main at time of run
+seed_docs_provided:
+  - docs/problem-statement.md
+  - docs/common-scaffold.md
+  - docs/approach-clusters.md
+  - protocol/EVIDENCE-RULES.md
+  - protocol/output-schema.md
+  - protocol/METHOD.md
+tools_available:
+  - WebSearch
+  - WebFetch
+  - Agent (subagents for parallel retrieval)
+  - Read/Write/Bash
+retrieval_used: true
+started: "2026-11-04"
+finished: "2026-11-04"
+token_cost: null
+operator: "michaelClucas"
+scaffold_version: "v0"
+
+notes: |
+  CONTEXT CONTAMINATION - THIS IS NOT A CLEAN METHOD DATA POINT.
+
+  This run was executed by a session forked from the session that
+  hand-wrote the seed documents (docs/problem-statement.md,
+  docs/common-scaffold.md, docs/approach-clusters.md, and
+  sources/bibliography.md). The forked context therefore contains the seed
+  author's full uncited background reasoning about the cluster partition,
+  the CLPW de Sitter work, and the bibliography entries, including
+  reasoning that never made it into the committed documents.
+
+  Consequences for how this run may be used:
+
+  1. The seed-withheld control specified in protocol/METHOD.md CANNOT be
+     run against this session. Removing docs/approach-clusters.md from the
+     inputs would not remove the seed, because the seed's reasoning is in
+     the conversation history. A control run requires a genuinely fresh
+     context.
+
+  2. The fabrication probe is weakened but not void. The probe tests
+     whether author-plus-year leads get returned as complete citations
+     with unretrieved locators. That test still functions, because the
+     seed author did not have the locators either. What is compromised is
+     the coverage claim, not the citation-integrity claim.
+
+  3. Coverage figures from this run are an upper bound on what an
+     uncontaminated agent would produce, and should not be cited as a
+     method result.
+
+  A replication on a fresh context is still owed before any conclusion of
+  this run is built on. Recorded as the first open item in REVIEW.md.
+
+  OPERATOR DECISION: the forked context was requested deliberately by the
+  user with the contamination flagged in advance. It was not an accident
+  of setup.
+
+  RETRIEVAL METHOD: six parallel retrieval subagents, one per cluster
+  (A, B, C+D, E, F, G), each instructed to fetch primary sources and to
+  report the exact URL fetched per locator. Synthesis and final
+  verification done by the cartographer, not delegated. Subagent returns
+  are intermediate evidence, not output; where a subagent could not fetch
+  a locator the entry is marked [LEAD] in OUTPUT.md.
+
+  CARTOGRAPHER-OWNED VERIFICATION: the two arXiv identifiers asserted in
+  the seed were checked directly by the cartographer rather than by a
+  subagent, since the seed asserts them and the run's priority question
+  depends on one of them. Both are correct. arXiv:2206.10780 is
+  "An Algebra of Observables for de Sitter Space" by Chandrasekaran,
+  Longo, Penington & Witten (June 2022, v5 July 2023), related DOI
+  10.1007/JHEP02(2023)082. arXiv:2112.12828 is "Gravity and the Crossed
+  Product" by Witten, sole author, submitted December 2021 (the seed gave
+  no year for it), related DOI 10.1007/JHEP10(2022)008.
