@@ -1,0 +1,343 @@
+run: 02-adversary
+role: adversary
+model: "claude-opus-5"
+model_id_exact: "claude-opus-5"
+date: "2026-11-04"
+scaffold_version: "v0"
+
+prompts_followed:
+  - prompts/00-system-adversary.md   # role card, prepended
+  - prompts/02-adversary.md          # task: surfaces S-1..S-9, five output parts
+
+target:
+  run: 01-consolidate-approaches
+  role: cartographer
+  model: "claude-opus-5"
+  repository: michaelClucas/The-Observer-Problem
+  branch: run-01-consolidate
+  pull_request: 3
+  pr_state_at_staging: unmerged
+  repo_main_at_staging: "5fbc9af"
+  target_declared_repo_commit: "d137e6d0b63710a4c62b21131d5b32b1165152cb"
+  target_declared_prompt_commit: "1793d26eab7c878792f063d21426514392cd2d52"
+  files_examined:
+    - target/OUTPUT.md     # ~212 KB, 3169 lines, read in full
+    - target/OUTPUT.json   # ~136 KB, 7 clusters, 42 members, 294 slot entries, 41 relations, 8 assumptions, 9 scaffold_misfits, 12 open_questions, 39 unverified_leads
+    - target/META.yaml
+
+isolation:
+  enforced_by: file staging
+  enforced_by_instruction: false
+  note: |
+    The adversary ran in a staging directory that was its entire view of the
+    project. It had no git access and no repository checkout, so the withheld
+    files were not reachable rather than merely forbidden. This run can
+    therefore state plainly that it did not read the withheld seed material.
+  fresh_context: true
+  forked_from_target: false
+  inherited_target_reasoning: false
+
+files_withheld:
+  - path: docs/approach-clusters.md
+    reason: >
+      The hand-written seed cluster map the target run was asked to correct.
+      An adversary holding the seed mistakes seed agreement for verification.
+    consequence_for_this_run: >
+      Surface S-7 (silent coverage gaps) could not be covered at all,
+      because the known-gaps list it asks the adversary to check against
+      exists only in this withheld file. Reported as zero findings with the
+      limit stated in Part 2 section 2.7, listed in Part 5 among surfaces
+      not covered, and recorded as method finding M-1 against the prompt
+      rather than against the target run. This is a defect in
+      prompts/02-adversary.md, not a budget limitation: the surface is
+      unworkable for any adversary obeying the prompt. The withheld file was
+      not requested and the gap was not worked around.
+  - path: target/REVIEW.md
+    reason: >
+      The target's self-review. Withheld until Parts 1-3 were written, so the
+      adversary's rubric scores were formed independently.
+    supplied_later: true
+    supplied_when: after Parts 1-3 were written and saved to out/
+    used_for: Part 4 only
+    scores_revised_after_reading: none, in either direction
+  - path: sources/bibliography.md
+    reason: >
+      The unverified seed bibliography. Part of the seed; would have supplied
+      unretrieved leads as though they were a reading list.
+
+staged_anchoring_risk:
+  disclosed_in: INPUTS.md
+  risk: >
+    target/META.yaml asserts under CARTOGRAPHER-OWNED VERIFICATION that
+    arXiv:2206.10780 and arXiv:2112.12828 are correct, with titles, authors
+    and DOIs. That is a claim by the run under attack, not an established
+    fact. Accepting it unchecked would itself have been a finding about this
+    adversarial pass.
+  handled_how: >
+    Both identifiers were re-fetched by the adversary directly, through the
+    arXiv Atom API, before reading the target's Cluster F, and
+    cross-confirmed through Crossref. Treated as claims throughout.
+  result: >
+    Both assertions are correct in every asserted particular, including the
+    v5 date for 2206.10780 and both DOIs. Reported as a clean result in
+    Part 2 section 2.2 rather than relied on silently.
+
+locator_coverage:
+  identifier_locators_in_target: 210
+  identifier_locators_fetched: 210
+  arxiv_ids_in_target: 133
+  arxiv_ids_fetched: 133
+  arxiv_new_style: 105
+  arxiv_old_style: 28
+  dois_in_target: 77
+  dois_fetched: 77
+  existence_sweep_complete: true
+  sampled_for_existence: false
+  fabricated_locators_found: 0
+  locators_resolving_to_different_work: 0
+
+  extraction_note: >
+    A first-pass DOI regex required a colon after "doi" and missed eight DOIs
+    written as "related DOI 10.xxxx/..." without one. The pattern was
+    loosened and the eight were fetched. The 77 figure is after that fix.
+
+  non_identifier_locators_not_counted: >
+    Three web locators (two Stanford Encyclopedia entries,
+    anthropic-principle.com/phd/phdhtml) plus a number of pre-arXiv journal
+    volume-and-page references and two book records (Barrow & Tipler 1986,
+    Wheeler 1968) that carry no DOI. These were checked where they
+    underwrote a finding and are not included in the 210.
+
+  content_verification:
+    swept: false
+    sampled: true
+    works_read_at_claim_level: 14
+    distinct_works_cited_approx: 150
+    fraction_approx: 0.09
+    unsampled_remainder_approx: 136
+    sampling_method: |
+      Purposive, not random. Selected:
+        (a) the two locators target/META.yaml asserts;
+        (b) every locator underwriting a notational_variant verdict or a
+            differs_in value that the structural audit of OUTPUT.json had
+            flagged as suspect;
+        (c) the three discrepancies the operator supplied as leads;
+        (d) the places where the target's own tagging was most load-bearing
+            or most self-hedged (its [LEAD] on Gibbons & Hawking 1977, its
+            [SOURCED] on a review's assertion, its own citation correction).
+    unsampled_remainder_detail: >
+      Roughly 136 cited works were not read at claim level, including most of
+      clusters A, C and D and the Bostrom and Barrow-Tipler material in
+      cluster E1. For those works this pass establishes that the locator
+      exists and is the work attributed, and nothing about whether it says
+      what the target claims.
+    carried_into_scores: >
+      Stated in Part 2 section 2.4 and carried into the adversary's own
+      citation-integrity (2) and calibration (2) scores. Axis 1 is reported
+      as not capped at 0 on the basis of the complete existence sweep, which
+      is the only claim the sweep supports; a content-level fabrication in
+      the unsampled remainder would not have been caught by this pass.
+
+  works_read_at_claim_level:
+    - arXiv:2206.10780   # metadata, cross-confirmed via Crossref
+    - arXiv:2112.12828   # metadata, cross-confirmed via Crossref
+    - arXiv:1105.0244    # section 5 and section 3.2, via ar5iv
+    - arXiv:1906.04405   # full-text search for numerical bounds, via ar5iv
+    - arXiv:2102.07688   # abstract and full text, via arXiv and ar5iv
+    - arXiv:1703.02076   # abstract and section I, via ar5iv
+    - arXiv:gr-qc/9403010 # full-text search, via ar5iv
+    - arXiv:0712.0149    # footnotes and sections 2.3, 3.1, 3.3, 4.2, via ar5iv
+    - arXiv:2405.00114   # abstract, via arXiv
+    - arXiv:1912.00033   # abstract and listing only; body NOT read, see P-1
+    - doi:10.1103/PhysRevD.15.2738  # publisher abstract, APS
+    - arXiv:1601.03734   # API metadata (journal_ref / doi fields)
+    - arXiv:0803.1663    # API metadata and journal_ref
+    - arXiv:2304.10258   # API metadata and journal_ref
+
+retrieval_method:
+  tools_available:
+    - WebFetch
+    - WebSearch
+    - Agent (subagents)
+    - Read/Write/Bash
+  network_from_shell: >
+    Unavailable. curl returned zero bytes both inside and outside the
+    sandbox, so all retrieval went through WebFetch. Structural analysis of
+    the staged files was done locally in Python.
+  batching: >
+    Locator existence was resolved in batches rather than one fetch per
+    locator: ten arXiv Atom API id_list queries (14 ids each) and seven
+    Crossref filter=doi queries (9-12 DOIs each). Each query named its
+    requested identifiers and asked explicitly which returned no entry,
+    because both APIs drop unmatched identifiers silently rather than
+    erroring. Two Crossref batches returned HTTP 429 and succeeded on retry.
+
+  delegation:
+    subagents_used: 5
+    subagent_purpose: >
+      Retrieval legwork on five multi-paper content questions, run in
+      parallel while the adversary read the target's prose: the Freivogel
+      measure equivalences, the CSL bound discrepancy, the no-boundary
+      exponent-sign attribution, the PW=CLPW dictionary, and the
+      Gibbons-Hawking Everett-Wheeler remark.
+    verdict_ownership: >
+      No subagent claim was passed through unchecked. Every quotation and
+      every negative result that appears in a reported finding was re-fetched
+      by the adversary directly before being used. Specifically re-verified
+      by the adversary: Freivogel section 5's two conditional clauses and the
+      absence of equations there; the absence of any 10^-90 figure and of any
+      numerical lambda bound in arXiv:1906.04405; the presence of both
+      figures and the absence of "97 orders of magnitude" in
+      arXiv:2102.07688; the "agrees with Vilenkin's tunneling proposal"
+      sentence in arXiv:1703.02076 section I; the absence of Picard,
+      Lefschetz and "inflation" in arXiv:gr-qc/9403010; the Everett-Wheeler
+      sentence in the APS abstract of PhysRevD.15.2738; Wallace's footnote 4
+      and sections 3.1/4.2; and the arXiv:2405.00114 abstract's "informal
+      slogan" and "generalising previous approaches" wording.
+    rationale: >
+      The target run has on record that it caught one of its own subagents
+      misreporting a paper's content, and that episode is the main argument
+      in this repository for keeping verification un-delegated. This pass
+      treated subagent output as candidate leads only.
+    one_subagent_claim_not_adopted: >
+      A subagent reported, from the body of arXiv:1912.00033, that the
+      trinity equivalence's hypothesis is a non-degenerate continuous
+      spectrum with boundedness explicitly immaterial. The adversary could
+      verify only the abstract, which states no spectral condition at all.
+      That claim was therefore NOT adopted as CONFIRMED; it is reported as
+      PLAUSIBLE finding P-1 with the unperformed check named.
+
+self_review_comparison:
+  read_after_parts_1_to_3: true
+  self_review_total: 12
+  adversary_total: 11
+  axes_agreeing: 4
+  axes_diverging: 1
+  diverging_axis: conflict_rigour
+  self_review_scored_itself_generously: false
+  headline: >
+    The self-review scored itself 12/15 against an independent 11/15, with
+    four of five axes matching exactly. It is not a generously self-scored
+    run. It volunteered a schema violation of its own, a caught subagent
+    error, two coverage holes, a specific calibration failure, and the
+    contamination that invalidates its own best score as a method result;
+    and its statement that prose/JSON agreement was "believed, not verified
+    exhaustively" and that "a divergence is possible and would be a review
+    finding" predicts findings C-3, C-5, C-6 and C-7 in advance.
+  agreement_discount: >
+    Agreement between this pass and the self-review is weak evidence: the
+    target ran on a context forked from the session that wrote the seed, and
+    the adversary's staged inputs came from that same author's repository.
+    Part 4 section 4.3 states per axis whether the agreement is held from
+    the adversary's own retrieval or from the self-review's argument. The
+    axis-4 agreement in particular rests on non-overlapping evidence bases
+    and should carry close to no weight.
+  axis_1_note: >
+    Same number, opposite directions. The self-review capped itself at 2
+    because it could not distinguish a subagent fetching a locator from a
+    subagent saying it fetched one, across roughly 150 locators. This pass
+    closed that gap in the run's favour by fetching all 210 itself. The
+    score holds at 2 only because this pass found a different defect the
+    self-review does not name.
+  finding_the_adversary_missed: >
+    The self-review names a miscalibration this pass did not find: several
+    slots tagged SOURCED as silence where the underlying read was truncated,
+    with only B4's S4 correctly downgraded to LEAD. Not verified by this
+    pass and not asserted; recorded because it is checkable from the
+    target's own Part 6 and it cuts against the run.
+
+method_findings:
+  - id: M-1
+    about: prompts/02-adversary.md
+    about_the_target_run: false
+    verdict: CONFIRMED
+    summary: >
+      Attack surface S-7 is unworkable as specified. It asks the adversary to
+      check the target against a known-gaps list that exists only inside
+      docs/approach-clusters.md, which the same prompt withholds. Not a
+      budget limitation; unworkable for any adversary obeying the prompt.
+    handling: >
+      Reported as zero findings with the limit stated in Part 2 section 2.7
+      and listed in Part 5 among surfaces this pass could not cover,
+      attributed to the prompt. The withheld file was not requested and the
+      gap was not worked around.
+    proposed_fix: >
+      Fork the prompt to a new number per protocol/METHOD.md: either stage
+      the known-gaps list separately from the seed's cluster map, or move
+      S-7 to the human reviewer who holds the seed.
+    note: >
+      Identified by the operator on reading Parts 1-3; recorded as a result
+      this run produced.
+
+findings_summary:
+  total: 11
+  confirmed: 10
+  plausible: 1
+  method_findings: 1
+  by_surface:
+    S-1: 1 primary (C-1), 2 secondary (C-2, C-8)
+    S-2: 0
+    S-3: 1 primary (C-2), 1 secondary (P-1)
+    S-4: 1 primary (C-4), 2 secondary (C-9, P-1)
+    S-5: 0
+    S-6: 1 primary (C-9), 1 secondary (C-1)
+    S-7: 0, not covered; prompt defect, see method finding M-1
+    S-8: 4 primary (C-3, C-5, C-6, C-7)
+    S-9: 2 primary (C-8, C-10), 1 secondary (C-7)
+  highest_damage: C-1
+  zero_finding_surfaces: [S-2, S-5, S-7]
+
+rubric_scores:
+  formed_before_reading_target_review: true
+  revised_after_reading_target_review: false
+  citation_integrity: 2
+  slot_discipline: 3
+  conflict_rigour: 1
+  coverage: 3
+  calibration: 2
+  axis_1_capped_at_zero: false
+  axis_1_cap_note: >
+    protocol/METHOD.md caps axis 1 at 0 for any single fabricated citation.
+    No fabricated citation was found across a complete 210-locator existence
+    sweep, so the cap does not apply. The score of 2 rather than 3 reflects
+    C-1 (a locator that resolves and does not support the claim) and C-2 and
+    C-8 (SOURCED tags on a review's unqualified assertion and on the run's
+    own arithmetic).
+
+token_cost:
+  determinable: true
+  main_session_context_tokens_at_writing: 366889
+  main_session_context_window: 1000000
+  subagent_tokens_total: 532376
+  subagent_breakdown:
+    freivogel_equivalences: 65325
+    gibbons_hawking_everett: 66272
+    csl_bound_discrepancy: 112364
+    pw_clpw_dictionary: 179108
+    no_boundary_sign: 109307
+  combined_approx_at_writing: 899265
+  note: >
+    Figures are as reported by the harness: the main-session number is the
+    context-window reading at the time Parts 1-3 were written, and the
+    subagent numbers come from the five task notifications. Both exclude
+    Parts 4 and 5. Reported as measured; the adversary cannot audit the
+    harness's accounting.
+
+deliverables:
+  - out/OUTPUT.md     # Parts 1-5 per prompts/02-adversary.md
+  - out/OUTPUT.json   # findings list with rubric_scores as a top-level field
+  - out/META.yaml     # this file
+
+constraints_observed:
+  rewrote_no_part_of_target: true
+  filled_in_no_missing_approach: true
+  produced_no_rival_survey: true
+  read_target_review_before_part_4: false
+  stylistic_findings: 0
+  padding: >
+    Three of nine surfaces returned zero findings and are reported as zero
+    rather than filled. Two trivial pagination discrepancies were found,
+    judged immaterial, and recorded as non-findings rather than promoted.
+
+operator: "michaelClucas"
+committed_by: operator, after the fact

@@ -1,0 +1,523 @@
+{
+  "run": "02-adversary",
+  "role": "adversary",
+  "model": "claude-opus-5",
+  "date": "2026-11-04",
+  "target": {
+    "run": "01-consolidate-approaches",
+    "branch": "run-01-consolidate",
+    "pr": 3,
+    "model": "claude-opus-5",
+    "files_examined": [
+      "target/OUTPUT.md",
+      "target/OUTPUT.json",
+      "target/META.yaml"
+    ]
+  },
+  "rubric_scores": {
+    "scale": "0-3 per protocol/METHOD.md",
+    "formed_before_reading_target_review": true,
+    "citation_integrity": 2,
+    "slot_discipline": 3,
+    "conflict_rigour": 1,
+    "coverage": 3,
+    "calibration": 2,
+    "axis_1_capped_at_zero": false,
+    "axis_1_cap_note": "No fabricated citation was found. All 210 identifier locators were resolved in this run and every one resolves to the work the target attributes it to, so the axis-1 cap for a single fabricated citation does not apply.",
+    "unchanged_after_reading_target_review": true,
+    "post_review_note": "target/REVIEW.md was read only after Parts 1-3 were written and saved. No score was revised in either direction. Axis 1 would have gone to 3 on the self-review's own reasoning, since its stated ground for capping at 2 was that it could not rule out an unsampled fabrication and this pass ruled that out across all 210 identifier locators; it stays at 2 because this pass found a different defect the self-review does not name (C-1, with C-2 and C-8). Axis 3 stays at 1 for the reasons in Part 4 section 4.4."
+  },
+  "locator_sweep": {
+    "arxiv_ids_in_target": 133,
+    "arxiv_ids_fetched": 133,
+    "dois_in_target": 77,
+    "dois_fetched": 77,
+    "identifier_locators_total": 210,
+    "identifier_locators_resolved": 210,
+    "fabricated": 0,
+    "resolving_to_different_work": 0,
+    "method": "arXiv Atom API id_list batches and Crossref API filter=doi batches, fetched by the adversary directly, not delegated; each query named its requested identifiers and asked which returned no entry, because both APIs drop unmatched identifiers silently",
+    "content_verification_sampled": true,
+    "works_read_at_claim_level": 14,
+    "distinct_works_cited_approx": 150,
+    "content_sample_fraction_approx": 0.09,
+    "content_sampling_method": "purposive, not random: the two locators META.yaml asserts; every locator underwriting a notational_variant verdict or a differs_in value flagged by the structural audit; the three operator-supplied leads; and the places where the target's own tagging was most load-bearing or most self-hedged",
+    "unsampled_remainder_approx": 136,
+    "unsampled_remainder_note": "Roughly 136 cited works were not read at claim level, including most of clusters A, C and D and the Bostrom and Barrow-Tipler material in cluster E1. This gap is stated in Part 2 section 2.4 and carried into the citation-integrity and calibration scores."
+  },
+  "findings": [
+    {
+      "id": "C-1",
+      "verdict": "CONFIRMED",
+      "surface": "S-1",
+      "surface_secondary": "S-6",
+      "damage": "high",
+      "damage_detail": "Sole sourced basis for the target's only genuine-rivals verdict in Cluster G, for JSON relation 36, for the OUTPUT.md section 2.3 row, and for Cluster G finding 1. The cited result asserts the opposite about the relation between the two members it is used to separate.",
+      "quoted_text": "With Picard-Lefschetz theory and no-boundary initial conditions the dominant saddle's exponential factor is precisely the inverse of the Hartle-Hawking result, so the two proposals order the probability of inflation oppositely. This is what makes them rivals rather than variants.",
+      "location": "target/OUTPUT.md line 2419 (also lines 2148-2159, line 2300); target/OUTPUT.json relations[36]",
+      "what_is_wrong": "Feldbrugge, Lehners and Turok's 'precisely the inverse of the Hartle-Hawking result' is a claim about what the no-boundary proposal itself yields when its conditions are imposed on a Lorentzian path integral, not a comparison between the no-boundary and tunnelling proposals. That paper states its factor agrees with Vilenkin's tunnelling proposal, so the cited source makes G3a and G3b agree rather than conflict. The co-cited Vilenkin review supplies no substitute: it contains no Picard-Lefschetz theory, no inverse or sign-flip claim, and no comparison of the two proposals on inflation.",
+      "evidence_locators": [
+        "arXiv:1703.02076",
+        "arXiv:gr-qc/9403010",
+        "arXiv:0803.1663"
+      ],
+      "evidence": [
+        "arXiv:1703.02076 section I, fetched by the adversary via ar5iv: 'The semiclassical factor we obtain agrees with Vilenkin's \"tunneling\" proposal, for this simple cosmology.'",
+        "arXiv:1703.02076 section I: the complex-conjugate saddle 'gives a semiclassical exponential factor of e^{-12pi^2/(hbar Lambda)}, precisely the inverse of the Hartle-Hawking result. This is the crux of our argument'. No comparison of the two proposals on the probability of inflation appears.",
+        "arXiv:gr-qc/9403010, fetched by the adversary via ar5iv: 'Picard' and 'Lefschetz' do not appear; no inverse or sign-flip statement; the word 'inflation' appears zero times and 'inflationary' once, in an unrelated passage; the only exponential factor given is eq. (3.17), exp(-3/(8 G^2 rho_v)), for the tunnelling nucleation probability, with no corresponding explicit factor for Hartle-Hawking."
+      ],
+      "corrected_statement": "The exponent-sign difference between the no-boundary and tunnelling wave functions is real and standard, but its sourced basis is not Feldbrugge-Lehners-Turok. It is Vilenkin arXiv:gr-qc/9403010 section 3, where the tunnelling wave function is the decaying branch and the Hartle-Hawking-equivalent wave function the growing branch (eqs. 3.15-3.18, with footnote 36 recording that the latter includes expanding and contracting components of equal amplitude), together with Hartle, Hawking and Hertog arXiv:0803.1663, whose abstract states the no-boundary measure is heavily biased towards small amounts of inflation. arXiv:1703.02076 belongs in the map as a dispute inside the no-boundary camp about how to compute the no-boundary wave function; the unsuppressed-perturbation conclusion gestured at as 'layer 2' is in arXiv:1705.00192 and arXiv:1708.05104, not in 1703.02076, which asserts a convergent fluctuation measure."
+    },
+    {
+      "id": "C-2",
+      "verdict": "CONFIRMED",
+      "surface": "S-3",
+      "surface_secondary": "S-1",
+      "damage": "high",
+      "damage_detail": "Two of five notational_variant verdicts. Both rest on a review's assertion rather than a dictionary, and both drop the conditions the review attaches, converting conditional approximate agreement of predictions into exact notational identity.",
+      "quoted_text": "Equivalences, section 5: scale-factor time is equivalent to the fat geodesic; light-cone time is equivalent to the causal diamond. [SOURCED]",
+      "location": "target/OUTPUT.md line 1117 (also line 2404); target/OUTPUT.json relations[20], relations[21]",
+      "what_is_wrong": "Two defects. First, both equivalences are explicitly conditional and approximate in the source and both conditions are dropped: the scale-factor to fat-geodesic equivalence holds only 'in the approximation that the geodesic congruence never stops expanding', and the light-cone to causal-diamond equivalence only 'Given this choice of initial condition', the condition being that the geodesic start in the most stable vacuum with positive cosmological constant. docs/common-scaffold.md defines notational variance as an explicit dictionary with no change to S5 outputs; conditional agreement of predictions is not that. Second, the dictionary field contains a disclaimer ('a term-by-term dictionary was NOT verified') where the schema requires a dictionary, and the verdict was kept, which EVIDENCE-RULES section 4 forbids. The source is also an invited review rather than where the claim was made, which the target itself notes. The first defect is self-disclosed nowhere in either file.",
+      "evidence_locators": [
+        "arXiv:1105.0244",
+        "doi:10.1088/0264-9381/28/20/204007"
+      ],
+      "evidence": [
+        "arXiv:1105.0244 section 5 'Equivalences between measures; global-local duality', fetched by the adversary via ar5iv: 'the scale factor cutoff is equivalent, in the approximation that the geodesic congruence never stops expanding'.",
+        "Same section: 'Given this choice of initial condition, the lightcone time cutoffs, which are defined globally,' 'are equivalent to the causal diamond cutoff'; and 'the global measures are equivalent to local measures' if 'the initial conditions for the local measure is given by the attractor behavior of the global measure'.",
+        "Same section contains no numbered equations and no tables.",
+        "Crossref confirms the venue: 10.1088/0264-9381/28/20/204007, Classical and Quantum Gravity 28, 204007 (2011), an invited review."
+      ],
+      "corrected_statement": "Both verdicts should be unresolved, with the conditions recorded: scale-factor time and the fat geodesic agree in the approximation that the geodesic congruence never stops expanding; light-cone time and the causal diamond agree given that the geodesic starts in the most stable positive-Lambda vacuum; the review asserts both and exhibits no term-by-term mapping, and the primary sources behind them were not retrieved. This is the target's own treatment of the third equivalence in the same row, so the fix is to apply its own standard uniformly."
+    },
+    {
+      "id": "C-3",
+      "verdict": "CONFIRMED",
+      "surface": "S-8",
+      "damage": "high",
+      "damage_detail": "Three mutually inconsistent counts of one relation set, and the derived structural claim about where conflicts concentrate is computed over a population that matches neither the table above it nor the JSON beside it.",
+      "quoted_text": "Of the 34 pairings above: 9 non_competing, 18 genuine_conflict, 4 notational_variant (two with dictionaries exhibited, two on a review's authority), 3 unresolved.",
+      "location": "target/OUTPUT.md line 2427 (derived claim at line 2434); against target/OUTPUT.md section 2.3 table lines 2386-2423 and target/OUTPUT.json relations",
+      "what_is_wrong": "The section 2.3 table has 37 non-separator data rows, counting 22 genuine_conflict, 7 non_competing, 3 notational_variant rows and 3 unresolved rows, plus two rows whose verdict is 'dependency' and one 'genuine disagreement about direction', none of which is a schema verdict and none of which appears in the section 2.4 tally. OUTPUT.json carries 41 relations: 24 genuine_conflict, 9 non_competing, 5 notational_variant, 3 unresolved. The section 2.4 text matches the table immediately above it on no figure, and matches the JSON only on non_competing and unresolved. protocol/output-schema.md makes the prose authoritative, so the authoritative count is 37, a figure stated nowhere. The derived claim that '18 conflicts are heavily concentrated within clusters' with '10 of them intra-cluster' is therefore not checkable against either record.",
+      "evidence_locators": [
+        "target/OUTPUT.md:2386-2434",
+        "target/OUTPUT.json#relations"
+      ],
+      "evidence": [
+        "Mechanical row count of target/OUTPUT.md lines 2386-2423: 37 non-separator table rows, verdict substrings counted as 22 genuine_conflict, 7 non_competing, 3 notational_variant, 3 unresolved, 2 dependency, 1 genuine disagreement.",
+        "Counter over the verdict field of target/OUTPUT.json relations: 41 entries, {genuine_conflict: 24, non_competing: 9, notational_variant: 5, unresolved: 3}.",
+        "Both counts are reproducible from the staged files with no retrieval."
+      ],
+      "corrected_statement": "[UNKNOWN] which population the target intended. What would settle it: a single enumeration with stable identifiers from which both the prose table and the JSON are generated. Until then a reader should take the prose table's 37 rows as the record and treat the section 2.4 derived ratios as unsupported."
+    },
+    {
+      "id": "C-4",
+      "verdict": "CONFIRMED",
+      "surface": "S-4",
+      "damage": "high",
+      "damage_detail": "Six genuine_conflict verdicts tell a reader that six pairs make different predictions when, on the target's own evidence, none of the six does. One of them contradicts the target's own prose classification of that very pair.",
+      "quoted_text": "{\"a\": \"B3\", \"b\": \"B1\", \"slot\": \"S1\", \"verdict\": \"genuine_conflict\", \"differs_in\": \"observables\", \"note\": \"QBism permits a universal state only as one agent's personal judgment; Page-Wootters requires an observer-independent constraint-satisfying global vector.\"}",
+      "location": "target/OUTPUT.json relations[3], relations[9], relations[10], relations[11], relations[34], relations[40]",
+      "what_is_wrong": "docs/common-scaffold.md requires that a genuine disagreement change at least one of the set of allowed records, a probability, or a predicted observable; EVIDENCE-RULES section 4 adds that different vocabulary is not conflict. In all six relations the note describes a difference in ontology, in what a state is, or in which problem is explanatorily prior, and names no observable, record or probability that differs. Relation 40's own note states the difference is one of explanatory direction and that 'The scaffold has no slot for this', while the corresponding prose row calls it 'genuine disagreement about direction' and declines the genuine_conflict verdict the JSON supplies. Relation 11 is the sharpest: the target's own section 3.1 places this pair in the opposite bucket, 'Pairs that merely sound incompatible: QBism against quantum cosmology, which on the sourced record disagree about observer-independence rather than about whether a universal state may be written.' Relation 34 additionally carries an empty sources array.",
+      "evidence_locators": [
+        "target/OUTPUT.json#relations",
+        "docs/common-scaffold.md#comparison-rules",
+        "protocol/EVIDENCE-RULES.md#4",
+        "target/OUTPUT.md:2390",
+        "target/OUTPUT.md:2423",
+        "target/OUTPUT.md:2488-2494"
+      ],
+      "evidence": [
+        "Internal and reproducible from the staged files with no retrieval.",
+        "Relation 3 (A1/A3, S1) note: 'A1 asserts the universal state is real and complete; Zurek calls that assertion unwarranted.' No observable named; the target's own section 4.7 notes the cluster agrees on the probability rule and disagrees on why.",
+        "Relations 9 and 10 (B2/B4 and B4/B4, S1): incompatible S1 fillers, no observable named.",
+        "Relation 34 (F2/F3, S2) note: 'Two kinds of observer-dependence ... Nobody retrieved reconciles them.' No observable named, sources empty.",
+        "For contrast, four differs_in values are properly earned: relation 31 names entropy, relation 32 names the algebra type and hence the set of allowed observables, relations 1 and 2 name allowed records via the single-framework rule."
+      ],
+      "corrected_statement": "Relations 3, 9, 10, 11 and 34 should be unresolved, with the sourced difference in S1 or S2 fillers recorded and the absence of a differing record, probability or observable stated, which is how the target already handles B2/B3 at line 2394. Relation 40 needs the new verdict the target itself proposes in section 4.8, or unresolved; it should not be genuine_conflict. Relation 11 should follow the prose and be recorded as a pair that merely sounds incompatible."
+    },
+    {
+      "id": "C-5",
+      "verdict": "CONFIRMED",
+      "surface": "S-8",
+      "damage": "moderate",
+      "damage_detail": "Material content present in the authoritative prose is absent from the structured record, and the structured record cannot be joined to itself. output-schema.md states the JSON exists for comparing runs mechanically; with 17 dangling references and 11 untraceable member ids it cannot be.",
+      "quoted_text": "F8. The one observational prediction in the cluster. Gomez, \"Cosmology as a Crossed Product\", arXiv:2207.06704 [SOURCED], derives scalar curvature fluctuations from the quantum variance of the crossed-product generator ... This is the only member of Cluster F retrieved that claims an observational prediction from the algebra",
+      "location": "target/OUTPUT.md lines 1425 (E7), 1882 (F7), 1898 (F8); target/OUTPUT.json clusters E and F; target/OUTPUT.json relations and assumptions",
+      "what_is_wrong": "Four referential failures. (1) Prose members E7, F7 and F8 have no JSON entry at all, and the content is material: F7 holds the cluster's two live challenges to CLPW (Chen and Xu arXiv:2511.00622; Espindola and Ali arXiv:2605.30423) and F8 holds what the prose calls the cluster's only observational prediction from the algebra and the sole route to item 4 of the repository's progress list. (2) The JSON member ids E1a, E1b, E1c, E3a, E3b, E3c, E3d, E4a, E4b, E4c, E4d occur zero times in OUTPUT.md; their labels map onto prose sub-entries recognisably, so this is lost traceability rather than invented content, but 11 of 42 members cannot be looked up in the authoritative document. (3) Eleven relation endpoints are not member ids: B1-dirac-heisenberg, C, D, C4-gundhi, C4-martin-vennin, E3-causal-diamond, E3-fat-geodesic, E3-proper-time, SIA, goldstein-teufel, measurement-problem-observer. E3-proper-time is a party to a genuine_conflict (relation 19) and is inventoried nowhere in either file. Relation 10 has a == b == 'B4'. (4) Six assumption references are not member ids: B3(observer-independence only), azhar-guth-namjoo, azhar-2015, C4-martin-vennin, C4-bengochea, C4-gundhi. Separately and more mildly, cluster C runs C1, C3, C4 with no C2 in either file and no explanation; 'C2' does not occur in OUTPUT.md.",
+      "evidence_locators": [
+        "target/OUTPUT.json#clusters",
+        "target/OUTPUT.json#relations",
+        "target/OUTPUT.json#assumptions",
+        "target/OUTPUT.md:1425",
+        "target/OUTPUT.md:1882",
+        "target/OUTPUT.md:1898"
+      ],
+      "evidence": [
+        "Internal and reproducible: the member list extracted from target/OUTPUT.json compared with the heading and bold-label sets extracted from target/OUTPUT.md, plus a referential-integrity pass over relations and assumptions."
+      ],
+      "corrected_statement": "One identifier scheme used in both files at whichever granularity the run prefers; E7, F7 and F8 given JSON entries or an explicit excluded record saying why they have none; the 17 dangling references either promoted to members or rewritten as member ids; E3-proper-time inventoried as a member before being made party to a conflict; relation 10 given two distinct endpoints; and one line recording what happened to C2."
+    },
+    {
+      "id": "C-6",
+      "verdict": "CONFIRMED",
+      "surface": "S-8",
+      "damage": "moderate",
+      "damage_detail": "An unannounced fourth value of an enumerated field, which any tool comparing runs on slot status will either error on or silently miscount, and which propagated into the authoritative prose's own summary table.",
+      "quoted_text": "\"S1\": { \"filler\": \"Nothing: the approach denies a global object exists\", \"status\": \"denied\", ... }",
+      "location": "target/OUTPUT.json clusters[B].members[B2].slots.S1.status; propagated to target/OUTPUT.md line 2329",
+      "what_is_wrong": "protocol/output-schema.md enumerates status as filled|empty|misfit. 'denied' is not among them. It is also unnecessary: docs/common-scaffold.md lists among S1's possible fillers 'nothing (the approach denies a global object exists)', which is exactly what the prose records at line 329 ('Nothing. The approach denies a global object exists: no universal wave function, no God's-eye viewpoint, and there cannot be cosmic time'). A denial the scaffold anticipates as a filler is a filled slot, and the target's own section 3.1 treats it that way, listing RQM under 'Denies outright' among answers to the S1 question. The invented value reached the prose: the section 2.1 summary table's Cluster B row reads 'filled/denied' in a column whose other entries are schema values. A full pass over all 294 slot entries found exactly one out-of-enumeration status.",
+      "evidence_locators": [
+        "target/OUTPUT.json#clusters.B.members.B2.slots.S1",
+        "protocol/output-schema.md",
+        "docs/common-scaffold.md#S1",
+        "target/OUTPUT.md:329",
+        "target/OUTPUT.md:2329"
+      ],
+      "evidence": [
+        "Internal and reproducible: pass over all 294 slot entries cross-tabulating status against the schema enumeration."
+      ],
+      "corrected_statement": "status 'filled', filler 'Nothing: the approach denies a global object exists: no universal wave function, no God's-eye viewpoint, no cosmic time', and 'filled' in the section 2.1 table. If denial should be marked as distinct from an ordinary filler, that belongs in a new field proposed in the scaffold report, not in an unannounced fourth value of an enumerated one."
+    },
+    {
+      "id": "C-7",
+      "verdict": "CONFIRMED",
+      "surface": "S-8",
+      "surface_secondary": "S-9",
+      "damage": "moderate",
+      "damage_detail": "109 of 294 slot entries breach the schema rule as written. The split decides what a later run should fix: 96 indicate a gap in the schema, 13 are violations by the run, and 2 of those 13 upgrade the prose's confidence tag.",
+      "quoted_text": "\"S1\": { \"filler\": \"Classical eternally-inflating spacetime\", \"status\": \"filled\", \"confidence\": \"SOURCED\", \"sources\": [] }",
+      "location": "target/OUTPUT.json, 109 slot entries; the quoted entry is clusters[E].members[E4c].slots.S1",
+      "what_is_wrong": "protocol/output-schema.md: 'sources is empty only when confidence is LEAD, INFERENCE, or UNKNOWN.' All 109 breach that rule, but they are not one phenomenon. 96 have status 'empty' with an empty filler: these are the prose's '[SOURCED] as silence' judgments, which EVIDENCE-RULES section 3 explicitly requires, and there is nothing for sources to point at because no claim was made. The schema offers no way to express a sourced negative, so this part is a gap in the schema rather than a violation by the run. 13 have a substantive filler asserted as SOURCED with no locator in the structured record (D4/S5, D5/S3, D5/S5, E1c/S3, E1c/S5, E1c/S6, E4c/S1, E4c/S2, E4d/S1, E4d/S2, F1/S3, F1/S5, F2/S3); the locators are mostly recoverable from the prose but are absent from the field a comparison tool reads. Two of the 13, E4c/S1 and E4d/S1, also contradict the prose's own tag: OUTPUT.md line 1092 tags the identical filler [INFERENCE] ('S1 is not a quantum object at all but a classical eternally-inflating spacetime [INFERENCE]'), and the empty sources array is consistent with the prose tag and inconsistent with the JSON's. Companion entries E3a/S1, E3c/S1 and E3d/S1 keep INFERENCE correctly, so the upgrade is inconsistent even within the JSON.",
+      "evidence_locators": [
+        "target/OUTPUT.json#clusters",
+        "protocol/output-schema.md#rules",
+        "protocol/EVIDENCE-RULES.md#3",
+        "target/OUTPUT.md:1092"
+      ],
+      "evidence": [
+        "Internal and reproducible: a pass over all 294 slot entries cross-tabulating confidence, status, filler emptiness and sources length. Result: SOURCED-with-empty-sources by status = {empty: 96, filled: 12, misfit: 1}."
+      ],
+      "corrected_statement": "For the 96: the schema should gain a way to record a sourced negative, either a SOURCED_NEGATIVE confidence value or a rule that a sourced silence cites the text in which the approach is silent, which is strictly better because it is checkable. For the 13: populate sources from the prose. For E4c/S1 and E4d/S1: confidence INFERENCE, matching the prose."
+    },
+    {
+      "id": "C-8",
+      "verdict": "CONFIRMED",
+      "surface": "S-9",
+      "surface_secondary": "S-1",
+      "damage": "low",
+      "damage_detail": "One figure's tag. The substance, an enormous disagreement traced entirely to the choice of collapse operator, is correct and well sourced on both sides; only the confidence tag on the cross-camp quantity is wrong. Aggravated by the target having diagnosed the problem fourteen lines earlier.",
+      "quoted_text": "The two camps' bounds differ by roughly ninety-seven orders of magnitude, and the difference comes entirely from the choice of collapse operator. Live, not settled. [SOURCED]",
+      "location": "target/OUTPUT.md line 667 (also line 2399); target/OUTPUT.json relations[14] confidence SOURCED",
+      "what_is_wrong": "Neither source states the figure. Both input numbers are printed only inside Gundhi et al.: their own bound lambda <= 10^7 s^-1 and lambda << 5.6e-90 s^-1 presented as Martin and Vennin's result. Martin and Vennin's own paper states no numerical bound on lambda at all; its cosmological constraint is analytic in gamma with the numerical content in a figure. The 97-decade span is therefore the target's own subtraction across one paper's restatement of another's analytic result, which is an INFERENCE with two named premises. The target establishes exactly this at line 653 ('A single-number bound sometimes attributed to Martin & Vennin is not in their paper ... Anyone quoting it should attribute it to Gundhi et al.'s restatement, not to Martin & Vennin directly') and then builds a SOURCED cross-camp figure out of that number.",
+      "evidence_locators": [
+        "arXiv:2102.07688",
+        "arXiv:1906.04405"
+      ],
+      "evidence": [
+        "arXiv:2102.07688, fetched by the adversary via ar5iv: 'one obtains an upper bound lambda <~ 10^7 s^-1, which is 17 orders of magnitude weaker than the state-of-art result'; introduction, 'the authors find lambda << 5.6 x 10^-90 s^-1 as a bound on the second CSL parameter', presented as Martin and Vennin's result. The phrase '97 orders of magnitude' does not appear.",
+        "arXiv:1906.04405, fetched by the adversary via ar5iv: no number of order 10^-90 anywhere; no numerical cosmological upper bound on lambda in inverse seconds; the constraint is analytic in gamma with the result in a figure. Its conclusion is 'Therefore, that version of CSL is now ruled out', and 'any choice corresponding to p<2 is ruled out', with Bardeen's delta_m corresponding to p=2, all three exactly as the target reports them."
+      ],
+      "corrected_statement": "[INFERENCE], premises named: Gundhi et al. state their own bound as lambda <= 10^7 s^-1 and render Martin and Vennin's as lambda << 5.6e-90 s^-1; the span between the two figures as printed in that one paper is about 97 decades; Martin and Vennin state no numerical lambda bound, so the lower figure is Gundhi et al.'s rendering and the span is not a quantity either camp asserts."
+    },
+    {
+      "id": "C-9",
+      "verdict": "CONFIRMED",
+      "surface": "S-6",
+      "surface_secondary": "S-4",
+      "damage": "low-moderate",
+      "damage_detail": "A claim attributed to CLPW without a locator, and a genuine_conflict verdict recorded against authors who state they are generalising the work they are said to conflict with. The target notices the tension in prose and leaves the verdict standing, so the JSON reports a conflict the prose has just explained away.",
+      "quoted_text": "Relation to CLPW: genuine conflict on S2 by the scaffold's test. CLPW present one observer and one entropy for the static patch; this work shows the entropy - a predicted observable - depends on which frame is used. ... it is recorded as an extension that removes CLPW's uniqueness claim, not as a criticism. [INFERENCE]",
+      "location": "target/OUTPUT.md line 1879 (also line 2413); target/OUTPUT.json relations[31]",
+      "what_is_wrong": "The uniqueness claim said to be removed is not one CLPW make, and no locator for it is given anywhere in the target run. The paper credited with removing it frames the work as generalising previous approaches and its central equivalence as an informal slogan, not as the withdrawal of a CLPW claim. The observer-dependence result itself is sound and is not attacked here; the INFERENCE tag is honest about the reasoning being the target's own. Two narrower things are wrong: an unlocated claim is attributed to CLPW, and a genuine_conflict verdict is recorded against authors who present their result as an extension.",
+      "evidence_locators": [
+        "arXiv:2405.00114",
+        "doi:10.1007/JHEP07(2025)146"
+      ],
+      "evidence": [
+        "arXiv:2405.00114 abstract, fetched by the adversary: 'we demonstrate that the description of physical states and observables invoked by Chandrasekaran et al. is equivalent to the Page-Wootters formalism, leading to the informal slogan \"PW=CLPW\"'; 'we show that this procedure depends on which observer is employed'; 'We find that the entropies seen by distinct observers can drastically differ'; and the framing 'by generalising previous approaches, we derive density operators for the subregion relative to different observers'. The abstract makes no claim to remove or contradict a uniqueness claim of CLPW.",
+        "Journal reference as listed on the arXiv page: J. High Energ. Phys. 2025, 146 (2025), DOI 10.1007/JHEP07(2025)146, matching the target's citation exactly.",
+        "Scope limit: the adversary verified the abstract only and did not read either paper's body, so this finding asserts only that the abstract does not support the attribution and that no locator for a CLPW uniqueness claim is given in the target run."
+      ],
+      "corrected_statement": "Keep the observer-dependence result, drop the attributed uniqueness claim, and record the pair as unresolved or under the new verdict the target proposes in its section 4.8: De Vuyst et al. show that the algebra and entropy accessible to an observer depend on which quantum reference frame is used, and present this as a generalisation of CLPW to arbitrarily many observers; no claim of CLPW is identified as being withdrawn. If a CLPW uniqueness claim is wanted in the map it needs a section or equation number from arXiv:2206.10780."
+    },
+    {
+      "id": "C-10",
+      "verdict": "CONFIRMED",
+      "surface": "S-9",
+      "damage": "low",
+      "damage_detail": "One locator left as a lead when it was present in metadata the run was already fetching. The error runs toward over-caution rather than over-claiming, which is the harmless direction, and it is the only instance of the pattern found.",
+      "quoted_text": "Journal reference JCAP 2016(03) 022 is [LEAD] - from search results only; the ar5iv page carries no journal line. [SOURCED] for the preprint.",
+      "location": "target/OUTPUT.md line 766",
+      "what_is_wrong": "S-9 asks whether a confidence tag is ever used to avoid retrievable work. The arXiv API record for 1601.03734 carries doi 10.1088/1475-7516/2016/03/022, which is the JCAP reference the target marked as a lead, in the same metadata the run was already fetching for every other locator. The run checked the ar5iv rendering, correctly observed no journal line there, and stopped.",
+      "evidence_locators": [
+        "arXiv:1601.03734",
+        "doi:10.1088/1475-7516/2016/03/022"
+      ],
+      "evidence": [
+        "arXiv Atom API query on id_list including 1601.03734, fetched by the adversary: journal_ref absent, doi present and equal to 10.1088/1475-7516/2016/03/022.",
+        "The same query confirmed that arXiv:2310.11072, arXiv:2505.22708, arXiv:0707.4169 and arXiv:2602.02667 genuinely carry no journal_ref, exactly as the target states."
+      ],
+      "corrected_statement": "[SOURCED] for Nelson, 'Quantum Decoherence During Inflation from Gravitational Nonlinearities', arXiv:1601.03734, JCAP 03 (2016) 022, doi:10.1088/1475-7516/2016/03/022. General fix for a later run: read the arXiv API doi field as well as the journal_ref field, since a DOI is often present when a journal line is not."
+    },
+    {
+      "id": "P-1",
+      "verdict": "PLAUSIBLE",
+      "surface": "S-3",
+      "surface_secondary": "S-4",
+      "damage": "moderate if confirmed",
+      "damage_detail": "If confirmed, the target's headline structural finding in Part 3.6 loses the published link it claims to rest on, and the clock trade-off reverts from something two communities independently found to the target's own synthesis.",
+      "quoted_text": "The equivalence holds under a stated spectral condition on the clock Hamiltonian, so the compatibility claim and the spectrum question are not independent. [SOURCED]",
+      "location": "target/OUTPUT.md line 2393 (also line 498); target/OUTPUT.json relations[7]",
+      "what_is_wrong": "'The spectrum question' throughout the target run means boundedness: that is the axis of Part 3.6, where Wheeler-DeWitt is unbounded below, GLM Page-Wootters requires an unbounded generator, and CLPW require bounded below. If the Hoehn-Smith-Lock trinity's stated hypothesis is instead non-degeneracy and continuity of the clock Hamiltonian's spectrum, it is a condition about degeneracy and point-versus-continuous spectrum, not about boundedness, and the two are logically independent: a bounded-below Hamiltonian can have a non-degenerate continuous spectrum and an unbounded one can be degenerate. The inference 'so the compatibility claim and the spectrum question are not independent' would not follow. A further reason to doubt it in the direction that matters: the HSL abstract advertises coverage of non-ideal clocks, which in that literature are precisely the bounded ones, so a construction whose selling point is making bounded clocks work is an odd source for a claim that the equivalence constrains boundedness.",
+      "evidence_locators": [
+        "arXiv:1912.00033"
+      ],
+      "evidence": [
+        "arXiv:1912.00033 abstract and listing, fetched by the adversary: no mention of non-degenerate, continuous, bounded or unbounded spectra. The nearest wording is that the construction uses 'covariant POVMs which encompass non-ideal clocks' and that the resolution 'does not invoke approximations, ideal clocks or ancilla systems'."
+      ],
+      "check_not_performed": "The adversary read only the abstract and listing of arXiv:1912.00033 at primary level, where no spectral condition is stated at all. The condition is in the body, which was not read within this pass's budget. This finding therefore asserts only that the abstract does not contain the condition the target cites, and that the one hypothesis the abstract does gesture at points the other way.",
+      "what_would_settle_it": "Read the stated hypothesis of the equivalence theorem in arXiv:1912.00033 section V, and section III.2 where clock spectra are classified. If the hypothesis is non-degenerate continuous spectrum with boundedness explicitly immaterial, this becomes CONFIRMED and the corrected statement is: the trinity equivalence holds under a non-degeneracy and continuity condition on the clock Hamiltonian's spectrum, which is independent of the boundedness question; the boundedness trade-off in Part 3.6 is the target's own INFERENCE and is not underwritten by the trinity theorem. If the hypothesis does involve boundedness, the claim stands and this finding should be struck.",
+      "corrected_statement": "[UNKNOWN] pending the check above."
+    }
+  ],
+  "surfaces_returning_zero_findings": [
+    {
+      "surface": "S-1",
+      "scope": "failure mode 1, fabricated or wrong locators",
+      "result": "zero",
+      "basis": "Complete sweep of 210 identifier locators; all resolve to the work attributed; no fabrication and none resolving to different work. The target's two deliberately-rejected candidate identifiers appear nowhere in either file, so the fabrication probe in protocol/METHOD.md returns negative on the evidence available."
+    },
+    {
+      "surface": "S-2",
+      "scope": "slots filled on no evidence",
+      "result": "zero",
+      "basis": "All 84 S6 and S7 entries audited. Across clusters A, B, C, D, F and G, S7 is empty without exception and S6 is filled exactly once (member A1), with a real source (arXiv:1405.7577) and explicitly scoped in prose to the Sebens-Carroll sub-line. No invented filler found. Emptiness is kept distinct from non-retrieval: unread texts are marked LEAD or UNKNOWN rather than empty."
+    },
+    {
+      "surface": "S-5",
+      "scope": "smoothing",
+      "result": "zero",
+      "basis": "Live disputes are flagged as live throughout (Linde-Page, Dyson-Kleban-Susskind against Albrecht-Sorbo, Martin-Vennin against Gundhi et al., D1 against D5, Chua-Callender against Huggett-Thebault); the global/local terminological trap is named; the no-boundary normalisability contradiction is reported both ways with 'Both are reported; this is not smoothed'; the no-boundary perturbation dispute is left unsettled in both directions. The adversary looked specifically for a sentence both sides of a live dispute would accept across the six Part 3 assumption sections and found none it could substantiate to the standard the prompt sets for this surface."
+    },
+    {
+      "surface": "S-7",
+      "scope": "silent coverage gaps",
+      "result": "zero, with a stated limit",
+      "basis": "docs/approach-clusters.md, the seed carrying the known-gaps list, was withheld from the adversary by design, so this surface could not be assessed to the depth it deserves. What could be checked: gaps are addressed by name throughout and each is answered or recorded as UNKNOWN with what would settle it; no gap identifiable from the staged files is dropped in silence. A reader holding the seed should re-run this surface. This limit is carried into the coverage score."
+    }
+  ],
+  "target_claims_independently_verified_sound": [
+    {
+      "claim": "META.yaml's assertion about arXiv:2206.10780 (title, four authors, v5 July 2023, DOI 10.1007/JHEP02(2023)082)",
+      "result": "correct in every asserted particular",
+      "locators": [
+        "arXiv:2206.10780",
+        "doi:10.1007/JHEP02(2023)082"
+      ]
+    },
+    {
+      "claim": "META.yaml's assertion about arXiv:2112.12828 (title, sole author Witten, submitted December 2021, DOI 10.1007/JHEP10(2022)008)",
+      "result": "correct in every asserted particular",
+      "locators": [
+        "arXiv:2112.12828",
+        "doi:10.1007/JHEP10(2022)008"
+      ]
+    },
+    {
+      "claim": "Freivogel youngness paradox: 13 vs 13.7 billion years, factor of order exp(10^60), proper-time cutoff conflicts with observation, scale-factor time does not 'as far as is known'",
+      "result": "accurate including the hedge",
+      "locators": [
+        "arXiv:1105.0244"
+      ]
+    },
+    {
+      "claim": "Martin and Vennin: 'that version of CSL is now ruled out'; 'any choice corresponding to p<2 is ruled out'; Bardeen's density contrast corresponds to p=2; the result is an exclusion rather than a bound",
+      "result": "verbatim accurate on all four",
+      "locators": [
+        "arXiv:1906.04405"
+      ]
+    },
+    {
+      "claim": "The target's own citation correction, that a single-number bound attributed to Martin and Vennin is not in their paper and should be attributed to Gundhi et al.'s restatement",
+      "result": "correct in every particular, independently confirmed from both papers; the target caught unprompted the precise failure mode EVIDENCE-RULES section 1 exists to prevent",
+      "locators": [
+        "arXiv:1906.04405",
+        "arXiv:2102.07688"
+      ]
+    },
+    {
+      "claim": "Gibbons and Hawking 1977 state the derivation involves abandoning observer-independent definitions of particles and suggest something like the Everett-Wheeler interpretation may be needed",
+      "result": "correct, and in the paper's own abstract rather than a database paraphrase; the target's [SOURCED] substance tag was right and its [LEAD] wording hedge was over-cautious. Limit the target did not state: this is the abstract, so a citation to a body page remains unverified",
+      "locators": [
+        "doi:10.1103/PhysRevD.15.2738"
+      ]
+    },
+    {
+      "claim": "Wallace footnote 4 splits Gell-Mann/Hartle from Griffiths/Omnes and calls the former much closer in spirit to Everett; section 3.1 rejects a unique finest-grained decoherent set; section 4.2 concedes the decoherence basis is not precisely specifiable microphysically",
+      "result": "all three confirmed; the section 3.3 profligate-ontology point is present but Wallace attributes that reading to commentators, a shade weaker than the target's rendering. Separately, the A1/A2a dictionary's 'Wallace adopts the medium-decoherence condition' overstates his 'it is tempting to adopt'; the dictionary's other four terms and the verdict are unaffected",
+      "locators": [
+        "arXiv:0712.0149"
+      ]
+    },
+    {
+      "claim": "Twelve asserted journal references carrying no DOI in the text",
+      "result": "all twelve correct against the arXiv journal_ref field, including Strasberg-Reinhard-Schindler Phys. Rev. X 14 041027 (2024) and Azhar Class. Quantum Grav. 31(3) 035005 (2014), where the target also correctly flags that the journal year precedes the arXiv posting date",
+      "locators": [
+        "arXiv:2304.10258",
+        "arXiv:1112.1830",
+        "arXiv:2009.09999",
+        "arXiv:0803.1663",
+        "arXiv:1510.04038",
+        "arXiv:1506.05308",
+        "arXiv:1506.08101"
+      ]
+    },
+    {
+      "claim": "Four 'no journal reference' claims",
+      "result": "verified as true absences rather than retrieval failures",
+      "locators": [
+        "arXiv:0707.4169",
+        "arXiv:2602.02667",
+        "arXiv:2310.11072",
+        "arXiv:2505.22708"
+      ]
+    },
+    {
+      "claim": "Every slots entry present even where empty, per the schema rule the run was explicitly warned about",
+      "result": "satisfied exactly, 294 of 294 across all 42 members; no omission anywhere",
+      "locators": [
+        "target/OUTPUT.json#clusters"
+      ]
+    },
+    {
+      "claim": "The A1/A2a S4 dictionary and the Hoehn-Smith-Lock trinity dictionary",
+      "result": "both genuine term-by-term mappings; the A1/A2a verdict is honestly split, notational_variant on the decoherence condition and unresolved on the records condition, with the unmapped strong-decoherence residue recorded",
+      "locators": [
+        "arXiv:0712.0149",
+        "arXiv:1912.00033"
+      ]
+    }
+  ],
+  "trivial_discrepancies_judged_immaterial": [
+    {
+      "item": "Connes and Rovelli given as Class. Quantum Grav. 11, 2899-2918; Crossref gives 2899-2917",
+      "reason_no_finding": "off-by-one end page on a locator that resolves unambiguously; EVIDENCE-RULES section 1 is satisfied by a locator precise enough to be checked"
+    },
+    {
+      "item": "Zurek quant-ph/9805065 given as Phil. Trans. R. Soc. Lond. A 356, 1793-1820; Crossref gives 1793-1821",
+      "reason_no_finding": "as above. About thirty other volume-and-page pairs compared against Crossref matched exactly"
+    }
+  ],
+  "operator_supplied_leads": [
+    {
+      "lead": "Five notational_variant verdicts, all carrying dictionaries; verify the count and check each dictionary works",
+      "adjudication": "count confirmed, lead sharpened into C-2: all five have a populated dictionary field, but two contain a disclaimer in place of a dictionary, and the defect the lead did not reach is that the source's equivalences are explicitly approximate and conditional and both conditions were dropped"
+    },
+    {
+      "lead": "One slot, member B2's S1, carries status 'denied', not among the schema's filled|empty|misfit",
+      "adjudication": "confirmed, written up as C-6; it is the only out-of-enumeration status among all 294 entries, and it propagated into the prose's own section 2.1 summary table"
+    },
+    {
+      "lead": "The prose and JSON were produced separately, so S-8 is live",
+      "adjudication": "confirmed and the most productive surface in the pass, yielding C-3, C-5, C-6 and C-7. Bounding the damage: no slot entry is omitted anywhere, no cluster label, sub-problem assignment or proponent list diverges, and no JSON filler contradicts the prose on substance. The divergences are in counts, identifiers and confidence tags, not in content"
+    }
+  ],
+  "self_review_comparison": {
+    "review_read_after_parts_1_to_3": true,
+    "scores": {
+      "citation_integrity": {
+        "self": 2,
+        "adversary": 2,
+        "diverges": false,
+        "note": "Same number, different grounds. The self-review's stated reason for not reaching 3 was that it could not distinguish 'a subagent fetched this' from 'a subagent said it fetched this' across roughly 150 locators. This pass closed that gap in the run's favour by fetching all 210 itself. The score holds at 2 on a defect the self-review does not name."
+      },
+      "slot_discipline": {
+        "self": 3,
+        "adversary": 3,
+        "diverges": false,
+        "note": "Same number, and the same diagnosis of the 109-entry problem reached independently. The self-review's account is incomplete in the direction that flatters it: it calls all 109 sourced silences, but 13 carry substantive fillers and are plain violations."
+      },
+      "conflict_rigour": {
+        "self": 2,
+        "adversary": 1,
+        "diverges": true,
+        "note": "The divergence that matters. See Part 4 section 4.4."
+      },
+      "coverage": {
+        "self": 3,
+        "adversary": 3,
+        "diverges": false,
+        "note": "Same number from evidence bases that do not overlap: the self-review scores coverage knowing the seed, this pass scores it with the seed withheld. The agreement should carry close to no weight."
+      },
+      "calibration": {
+        "self": 2,
+        "adversary": 2,
+        "diverges": false,
+        "note": "Same number, near-disjoint reasons. The self-review names a truncated-read miscalibration this pass did not find and does not verify."
+      },
+      "total": {
+        "self": 12,
+        "adversary": 11
+      }
+    },
+    "self_review_scored_itself_generously": false,
+    "generosity_finding": "The role card treats a generously self-scored run as a method data point. This one is the opposite: 12/15 against an independent 11/15, with four of five axes matching. It volunteered a schema violation of its own, a caught subagent error, two coverage holes, a specific calibration failure, the contamination that invalidates its own best score as a method result, and a warning that its two most interesting claims are candidate syntheses in open-question clothing. Its statement that prose/JSON agreement was 'believed, not verified exhaustively' and that 'a divergence is possible and would be a review finding' predicts C-3, C-5, C-6 and C-7 in advance.",
+    "agreement_discount": "Agreement between this pass and the self-review is weak evidence. The target ran on a context forked from the session that wrote the seed, and the adversary's staged inputs came from that same author's repository. Part 4 section 4.3 states, per axis, whether the agreement is held from the adversary's own retrieval or from the self-review's argument.",
+    "self_review_findings_the_adversary_did_not_find": [
+      {
+        "claim": "Several slots are tagged SOURCED as silence where the underlying read was truncated (Wallace's measurement survey, the SEP consistent-histories entry, the quantum-reference-frame Methods section, Azhar-Guth-Namjoo). Only B4's S4 was correctly downgraded to LEAD as emptiness-so-far.",
+        "adversary_status": "NOT VERIFIED. This pass audited the 84 S6/S7 entries for invented fillers and the SOURCED/INFERENCE boundary for upgrades, but did not cross-check which sourced silences rested on reads the run itself records as truncated. Not asserted here; recorded because it is checkable from the target's own Part 6 retrieval-failure list and it cuts against the run."
+      }
+    ],
+    "self_review_errors_noted": [
+      {
+        "item": "Axis 1 text says the cartographer independently verified 'eight' locators; the parenthetical immediately following lists twelve.",
+        "effect": "None on either score. Recorded because the whole axis-1 argument turns on that count."
+      },
+      {
+        "item": "Axis 3 computes over 'four notational_variant verdicts'; OUTPUT.json has five.",
+        "effect": "The self-review inherited the miscount from prose section 2.4 that this pass reports as C-3, so C-3's damage propagated into the run's own self-assessment. A worked example of why a count divergence is not mere bookkeeping."
+      },
+      {
+        "item": "Axis 3 names the complementarity-against-CLPW algebra-type conflict (relation 32) as a manufactured-conflict suspect.",
+        "effect": "This pass checked relation 32 and judged it sound: type I against Type II-1 is a difference in the set of allowed observables, which is what the scaffold requires, and non-engagement is irrelevant to that test. The self-review flags a verdict that is fine while missing six that are not."
+      }
+    ],
+    "self_review_next_steps_discharged": [
+      {
+        "item": 2,
+        "text": "Run the adversary role against the three INFERENCE conflicts and the 109 sourced-silence entries",
+        "status": "done, with results other than expected: of its three named conflicts one is sound (relation 32), one confirmed defective (relation 9), one confirmed defective on a different ground (relation 31, C-9); the 109 split 96 schema gap / 13 violation rather than 109 schema gap"
+      },
+      {
+        "item": 3,
+        "text": "Verify a random sample of 20 locators independently; if any is fabricated the run is discarded",
+        "status": "discharged beyond what was asked: 210 of 210 rather than 20, none fabricated, so the disqualifier does not fire. The sampling question moved rather than closed and now sits on content for the ~136 unread works"
+      },
+      {
+        "item": 5,
+        "text": "Fix protocol/output-schema.md to express sourced absence",
+        "status": "endorsed, with the 96/13 correction and two additions: enforce the status enumeration (C-6) and share the identifier scheme between the two files (C-5)"
+      },
+      {
+        "item": 1,
+        "text": "Replicate on a fresh context; nothing is a method result until then",
+        "status": "untouched by this pass and still owed; the contamination claim was taken at face value and not tested"
+      }
+    ]
+  },
+  "method_findings": [
+    {
+      "id": "M-1",
+      "about": "prompts/02-adversary.md",
+      "not_about_the_target_run": true,
+      "verdict": "CONFIRMED",
+      "summary": "Attack surface S-7 is unworkable as specified, for any adversary obeying the prompt, at any budget.",
+      "detail": "S-7 instructs the adversary: 'The target run was given a list of known gaps to assess. Check which it addressed and which it dropped without saying so.' The same prompt's setup section withholds docs/approach-clusters.md, and that withheld file is the only place the known-gaps list exists. The surface therefore asks for a comparison against an input the prompt denies the adversary. This is not a budget limitation and cannot be worked around without retrofitting an input mid-run.",
+      "handling_in_this_run": "S-7 is reported as zero findings with the limit stated in Part 2 section 2.7, and is listed in Part 5 among the surfaces this pass could not cover, attributed to the prompt. The adversary did not request the withheld file and did not work around the gap.",
+      "proposed_fix": "Fork the prompt to a new number per protocol/METHOD.md. Either stage the known-gaps list separately from the seed's cluster map, so an adversary can hold the gaps without holding the partition it is meant to attack independently, or drop S-7 from the adversary's remit and assign it to the human reviewer who holds the seed.",
+      "note": "Identified by the operator on reading Parts 1-3 and recorded here as a result this run produced."
+    }
+  ]
+}
