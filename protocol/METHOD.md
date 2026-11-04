@@ -36,9 +36,12 @@ run. An edited output destroys the method data.
 ## Run numbering
 
 - `01` Consolidate approaches and map to the common scaffold.
-- `02+` Decided after 01 is reviewed. Candidates: per-cluster deep dives,
-  an adversarial re-run of 01 with a different model, a replication of 01
-  with the seed docs withheld.
+  Prompt: `prompts/01-consolidate-approaches.md`.
+- `02` Adversarial pass over 01. Prompt: `prompts/02-adversary.md`, role
+  card `prompts/00-system-adversary.md`. Runs on a fresh context, never a
+  fork of the target run.
+- `03+` Decided after 02 is reviewed. Candidates: per-cluster deep dives,
+  a replication of 01 with the seed docs withheld.
 
 Replication is the point of the numbering. Run 01 should be re-run on at
 least two different models before any of its conclusions are built on.
@@ -51,7 +54,8 @@ A run uses one or both:
   conflicts. Rewarded for coverage and traceability, not for insight.
 - **Adversary.** Reads a completed run and attacks it: unverifiable
   citations, slots filled on no evidence, conflicts asserted without a
-  dictionary, approaches misattributed. Run against 01 before 02 starts.
+  dictionary, approaches misattributed. Runs against 01 before any 03
+  starts.
 
 Run 01 is Cartographer only.
 
