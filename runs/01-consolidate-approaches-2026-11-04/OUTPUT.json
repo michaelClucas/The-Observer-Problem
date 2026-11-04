@@ -1,0 +1,3759 @@
+{
+  "run": "01-consolidate-approaches",
+  "model": "claude-opus-5",
+  "date": "2026-11-04",
+  "scaffold_version": "v0",
+  "context_contamination": "This run was executed by a session forked from the session that hand-wrote the seed documents. It is NOT a clean method data point: the seed-withheld control cannot be run against it, and coverage figures are an upper bound on what an uncontaminated agent would produce. The fabrication probe remains functional, since the seed author did not have the locators either. See META.yaml and REVIEW.md.",
+  "clusters": [
+    {
+      "id": "A",
+      "label": "No-collapse formulations of a closed universe",
+      "subproblems": [
+        "P1",
+        "P2"
+      ],
+      "members": [
+        {
+          "id": "A1",
+          "label": "Everettian / relative-state with decoherence",
+          "proponents": [
+            "Everett",
+            "Zeh",
+            "Joos",
+            "Zurek",
+            "Wallace"
+          ],
+          "subproblems": [
+            "P1",
+            "P2",
+            "P3(partial)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Normalised state vector in a global Hilbert space; unitary; uniqueness assumed",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0712.0149",
+                "doi:10.1103/RevModPhys.29.454"
+              ]
+            },
+            "S2": {
+              "filler": "Subsystem / tensor factor; observer states emergent, derived not postulated",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0712.0149"
+              ]
+            },
+            "S3": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "Decoherence of a pointer basis via environmental records; approximate; no selection postulate",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0712.0149"
+              ]
+            },
+            "S5": {
+              "filler": "Born rule on branch weights, derived from decision-theoretic rationality axioms",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0906.2718"
+              ]
+            },
+            "S6": {
+              "filler": "Self-locating uncertainty with amplitude-squared credence (Sebens-Carroll sub-line only)",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1405.7577"
+              ]
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "A2a",
+          "label": "Decoherent histories, Gell-Mann/Hartle version",
+          "proponents": [
+            "Gell-Mann",
+            "Hartle",
+            "Halliwell"
+          ],
+          "subproblems": [
+            "P1",
+            "P2"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Pair of Hamiltonian and initial state; uniqueness an input, not derived",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0806.3776",
+                "arXiv:1803.04605"
+              ]
+            },
+            "S2": {
+              "filler": "Coarse-grained projectors; observer is an information gathering and utilising system, dispensable",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0806.3776"
+              ]
+            },
+            "S3": {
+              "filler": "Background time non-gravitationally; in the gravitational version no clock at all, a spacetime coarse-graining instead",
+              "status": "misfit",
+              "confidence": "INFERENCE",
+              "sources": [
+                "arXiv:gr-qc/9304006",
+                "arXiv:gr-qc/0208018"
+              ]
+            },
+            "S4": {
+              "filler": "Approximate diagonality of the decoherence functional; optionally sharpened to strong decoherence via permanence of generalized records",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0806.3776",
+                "arXiv:gr-qc/9509054"
+              ]
+            },
+            "S5": {
+              "filler": "Diagonal of the decoherence functional; no argument beyond consistency, probabilities taken as basic",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0806.3776"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "A2b",
+          "label": "Consistent histories, Griffiths/Omnes version",
+          "proponents": [
+            "Griffiths",
+            "Omnes"
+          ],
+          "subproblems": [
+            "P1",
+            "P2"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "As A2a, with an anti-realist gloss on macroscopic superpositions; density operators are pre-probabilities",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "plato.stanford.edu/entries/qm-consistent-histories/"
+              ]
+            },
+            "S2": {
+              "filler": "Coarse-grained projectors within a framework",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "plato.stanford.edu/entries/qm-consistent-histories/"
+              ]
+            },
+            "S3": {
+              "filler": "Background time",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "doi:10.1007/BF01015734"
+              ]
+            },
+            "S4": {
+              "filler": "A2a consistency condition PLUS the single-framework rule; cross-framework conjunctions left undefined",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "plato.stanford.edu/entries/qm-consistent-histories/"
+              ]
+            },
+            "S5": {
+              "filler": "Kolmogorov probabilities from the Born rule, meaningful only within one framework",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "plato.stanford.edu/entries/qm-consistent-histories/"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "A3",
+          "label": "Quantum Darwinism / existential interpretation",
+          "proponents": [
+            "Zurek"
+          ],
+          "subproblems": [
+            "P2",
+            "P1(partial)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Global state with a pre-imposed system/environment/fragment tripartition; reality of the global state explicitly withheld",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0903.5082"
+              ]
+            },
+            "S2": {
+              "filler": "Position changed: observer memory represented in 1998; in 2009 whoever reads a fragment",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:quant-ph/9805065",
+                "arXiv:0903.5082"
+              ]
+            },
+            "S3": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "Redundant imprinting across environment fragments; output is objectivity, not definiteness",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0903.5082"
+              ]
+            },
+            "S5": {
+              "filler": "Envariance, not Born-as-postulate; author concedes the frequency connection is only sketched",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0903.5082"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "label": "Relational and agent-centred formulations",
+      "subproblems": [
+        "P1",
+        "P5"
+      ],
+      "members": [
+        {
+          "id": "B1",
+          "label": "Page-Wootters conditional probability / timeless QM",
+          "proponents": [
+            "Page",
+            "Wootters",
+            "Giovannetti",
+            "Lloyd",
+            "Maccone",
+            "Hoehn",
+            "Smith",
+            "Lock"
+          ],
+          "subproblems": [
+            "P1",
+            "P5(partial)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Non-normalisable solution of a constraint on a clock-system tensor product; regularised; zero eigenvalue not privileged",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1504.04215"
+              ]
+            },
+            "S2": {
+              "filler": "Tensor factor: the clock subsystem. Observer not modelled as an agent. Postulated",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1504.04215"
+              ]
+            },
+            "S3": {
+              "filler": "Internal quantised clock. GLM REQUIRES an unbounded generator; covariant-POVM generalisation buys bounded spectra at the cost of non-orthogonal clock readings",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1504.04215",
+                "arXiv:1912.00033"
+              ]
+            },
+            "S4": {
+              "filler": "No independent record rule; conditioning is a probability construction, so the S4/S5 split fails here",
+              "status": "misfit",
+              "confidence": "INFERENCE",
+              "sources": [
+                "arXiv:1504.04215",
+                "arXiv:1912.00033"
+              ]
+            },
+            "S5": {
+              "filler": "Conditional probability given a clock reading; Born rule POSTULATED in that form, then shown gauge-invariant",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1912.00033"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "B2",
+          "label": "Relational quantum mechanics",
+          "proponents": [
+            "Rovelli"
+          ],
+          "subproblems": [
+            "P1",
+            "P2",
+            "P5"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Nothing; the approach denies a global object exists. No universal wave function, no cosmic time",
+              "status": "denied",
+              "confidence": "SOURCED",
+              "sources": [
+                "plato.stanford.edu/entries/qm-relational/"
+              ]
+            },
+            "S2": {
+              "filler": "Any physical system, naturalistically; observers are not physically special. A filler, not an empty slot",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:quant-ph/9609002"
+              ]
+            },
+            "S3": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "Position changed and dated: records primitive in 1996; a cross-perspective-links postulate added 2022/2023",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:quant-ph/9609002",
+                "arXiv:2203.13342"
+              ]
+            },
+            "S5": {
+              "filler": "Relative transition probabilities from two information-theoretic postulates",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:quant-ph/9609002"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "B3",
+          "label": "QBism",
+          "proponents": [
+            "Fuchs",
+            "Mermin",
+            "Schack"
+          ],
+          "subproblems": [
+            "P1",
+            "P2",
+            "P5"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "No observer-independent global object; as many state assignments as agents. A pure universal state is allowed in principle as one agent's personal judgment about the universe minus herself",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1003.5209"
+              ]
+            },
+            "S2": {
+              "filler": "A primitive agent not represented in the formalism; the exception is her own private experience",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1311.5253"
+              ]
+            },
+            "S3": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "Agent-relative subjective assignment; the record IS the agent's experience. Exact by stipulation",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1311.5253"
+              ]
+            },
+            "S5": {
+              "filler": "Personalist Bayesian coherence plus the Born rule as an addition to probability theory",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1003.5209"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "B4",
+          "label": "Quantum reference frames",
+          "proponents": [
+            "Giacomini",
+            "Castro-Ruiz",
+            "Brukner",
+            "Vanrietvelde",
+            "Hoehn"
+          ],
+          "subproblems": [
+            "P1",
+            "P5"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "TWO OPPOSED FILLERS inside one seed member: no global object (Giacomini-Brukner) versus a perspective-neutral global state (Vanrietvelde-Hoehn)",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1712.07207",
+                "arXiv:1811.00611"
+              ]
+            },
+            "S2": {
+              "filler": "Tensor factor; the frame is a physical quantum system, reduced out of its own perspective",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1712.07207"
+              ]
+            },
+            "S3": {
+              "filler": "Quantised internal frame; in the cosmological branch an internal matter clock",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1712.07207",
+                "arXiv:1811.00611"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "LEAD",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Born rule in a chosen frame; probabilities frame-relative",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1712.07207"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "B5",
+          "label": "Thermal time hypothesis (cross-listed; primary home elsewhere)",
+          "proponents": [
+            "Connes",
+            "Rovelli"
+          ],
+          "subproblems": [
+            "P1(partial)",
+            "P5"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "An algebra of covariant observables plus a SET of states, with no preferred state",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9406019"
+              ]
+            },
+            "S2": {
+              "filler": "A subalgebra selected by a worldline; physical clocks must be components of the system",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9406019"
+              ]
+            },
+            "S3": {
+              "filler": "Modular flow of the state, not a Hamiltonian clock, so the scaffold's spectrum question has no referent",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9406019"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "label": "Dynamical reduction (observer eliminated)",
+      "subproblems": [
+        "P2"
+      ],
+      "members": [
+        {
+          "id": "C1",
+          "label": "GRW spontaneous localisation and CSL",
+          "proponents": [
+            "Ghirardi",
+            "Rimini",
+            "Weber",
+            "Pearle",
+            "Bassi"
+          ],
+          "subproblems": [
+            "P2"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Normalised state vector under a non-linear stochastic Schrodinger equation; no global object offered, a subsystem state in a fixed background",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "doi:10.1103/PhysRevD.34.470"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S3": {
+              "filler": "External background time, not quantised",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1906.04405"
+              ]
+            },
+            "S4": {
+              "filler": "Stochastic modification of the dynamics. EXACT, not approximate. Collapse operator is a free choice and is the live dispute",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2102.07688"
+              ]
+            },
+            "S5": {
+              "filler": "Born rule as the probability of the noise realisation",
+              "status": "filled",
+              "confidence": "LEAD",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "C3",
+          "label": "Gravitationally induced collapse",
+          "proponents": [
+            "Penrose",
+            "Diosi"
+          ],
+          "subproblems": [
+            "P2"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "State vector with reduction triggered by gravitational self-energy difference",
+              "status": "filled",
+              "confidence": "LEAD",
+              "sources": []
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S3": {
+              "filler": "External background time",
+              "status": "filled",
+              "confidence": "LEAD",
+              "sources": []
+            },
+            "S4": {
+              "filler": "Gravitationally induced reduction; the timescale formula was NOT retrieved from either primary source and is not stated",
+              "status": "filled",
+              "confidence": "LEAD",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Whether Diosi-Penrose supplies a full probability rule or only a decay rate could not be established",
+              "status": "filled",
+              "confidence": "UNKNOWN",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "C4",
+          "label": "Collapse applied to inflationary perturbations",
+          "proponents": [
+            "Martin",
+            "Vennin",
+            "Peter",
+            "Gundhi",
+            "Bassi",
+            "Bengochea",
+            "Sudarsky"
+          ],
+          "subproblems": [
+            "P2"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Gaussian wavefunctional of the Mukhanov-Sasaki field on a fixed FLRW background",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1906.04405"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S3": {
+              "filler": "Conformal time on a fixed classical FLRW background; external, not quantised",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1906.04405"
+              ]
+            },
+            "S4": {
+              "filler": "CONTESTED rather than filled: four different collapse operators in the literature, with bounds differing by ~97 orders of magnitude",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1207.2086",
+                "arXiv:1906.04405",
+                "arXiv:2103.01697",
+                "arXiv:2102.07688"
+              ]
+            },
+            "S5": {
+              "filler": "Born via the noise realisation",
+              "status": "filled",
+              "confidence": "LEAD",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "label": "Quantum-to-classical transition of cosmological perturbations",
+      "subproblems": [
+        "P2"
+      ],
+      "members": [
+        {
+          "id": "D1",
+          "label": "Squeezing and semiclassicality",
+          "proponents": [
+            "Polarski",
+            "Starobinsky"
+          ],
+          "subproblems": [
+            "P2(partial, definiteness explicitly declined)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Two-mode squeezed vacuum mode by mode on a fixed classical FLRW background",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9504030"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S3": {
+              "filler": "External background conformal time",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9504030"
+              ]
+            },
+            "S4": {
+              "filler": "No record rule. An equivalence of expectation values obtained by OMITTING the decaying mode; the authors' own term is decoherence without decoherence. The misfit IS the result",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9504030"
+              ]
+            },
+            "S5": {
+              "filler": "Born rule re-read as a Gaussian distribution over field amplitudes with momentum slaved; rule inherited, no argument given",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9504030"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "D2",
+          "label": "Why cosmological perturbations look classical",
+          "proponents": [
+            "Kiefer",
+            "Polarski",
+            "Starobinsky"
+          ],
+          "subproblems": [
+            "P2(partial, restriction stated)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "As D1 plus an environment; object of calculation is a reduced density matrix",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0810.0087"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S3": {
+              "filler": "External background conformal time",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0810.0087"
+              ]
+            },
+            "S4": {
+              "filler": "Environment-induced decoherence with the field-amplitude pointer basis; approximate; yields an APPARENT ensemble only",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0810.0087",
+                "arXiv:gr-qc/9802003"
+              ]
+            },
+            "S5": {
+              "filler": "Born via the Wigner function; system behaves as if on classical trajectories",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0810.0087"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "D3",
+          "label": "Decoherence from gravitational nonlinearities",
+          "proponents": [
+            "Nelson"
+          ],
+          "subproblems": [
+            "P2(partial, remainder explicitly disclaimed)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Wavefunctional for the adiabatic curvature perturbation on a fixed slow-roll background",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1601.03734"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S3": {
+              "filler": "External background time",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1601.03734"
+              ]
+            },
+            "S4": {
+              "filler": "Tracing short-wavelength modes of the same field; driven by the gravitational cubic interaction; environment is a coarse-graining CHOICE, not derived",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1601.03734"
+              ]
+            },
+            "S5": {
+              "filler": "Born, inherited, and explicitly declined as an explanation of outcomes",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1601.03734"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "D4",
+          "label": "Open-EFT cosmological decoherence",
+          "proponents": [
+            "Burgess",
+            "Colas",
+            "Holman",
+            "Kaplanek",
+            "Martin",
+            "Vennin"
+          ],
+          "subproblems": [
+            "P2(rate question only, no interpretive commitment)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Reduced density matrix from open EFT with late-time Lindblad evolution and resummation",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2211.11046",
+                "arXiv:2403.12240"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S3": {
+              "filler": "External background conformal time on a fixed de Sitter / slow-roll background",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2211.11046"
+              ]
+            },
+            "S4": {
+              "filler": "Purity of the reduced state; effective when purity is far below one; control parameter grows as the cube of the scale factor. A LOWER bound on the rate",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2211.11046"
+              ]
+            },
+            "S5": {
+              "filler": "Born, inherited and uncommitted",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "D5",
+          "label": "Dissent: no intrinsic decoherence",
+          "proponents": [
+            "Hsiang",
+            "Hu"
+          ],
+          "subproblems": [
+            "P2"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "As D1",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2112.04092"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S3": {
+              "filler": "As D1",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "Asserts D1's S4 filler is INVALID, not merely restricted: leading-order truncation yields violated Wigner bounds and a violated uncertainty relation for a pure state",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2112.04092"
+              ]
+            },
+            "S5": {
+              "filler": "As D1",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "E",
+      "label": "Measure and self-location",
+      "subproblems": [
+        "P3",
+        "P4"
+      ],
+      "members": [
+        {
+          "id": "E1a",
+          "label": "Weak/strong anthropic principle",
+          "proponents": [
+            "Carter"
+          ],
+          "subproblems": [
+            "P3(partial)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S3": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "UNKNOWN",
+              "sources": []
+            },
+            "S6": {
+              "filler": "Selection on observability. Body NOT read; the wording of the principles is UNKNOWN and not paraphrased",
+              "status": "filled",
+              "confidence": "LEAD",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "E1b",
+          "label": "The Anthropic Cosmological Principle",
+          "proponents": [
+            "Barrow",
+            "Tipler"
+          ],
+          "subproblems": [
+            "P3(partial)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S3": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S5": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S6": {
+              "filler": "Selection-effect conditioning. WEAKEST ENTRY IN THE INVENTORY: locator verified, nothing about content verified",
+              "status": "filled",
+              "confidence": "LEAD",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "E1c",
+          "label": "SSA / SSSA / SIA and observer-moments",
+          "proponents": [
+            "Bostrom"
+          ],
+          "subproblems": [
+            "P3",
+            "P4(partial)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S2": {
+              "filler": "A primitive agent not represented in a physical formalism; individuated by reference-class criteria",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S3": {
+              "filler": "No clock; observer-moments are a temporal index for conditionalisation. The spectrum question has no referent",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Bayesian conditionalisation on indexical evidence, with SSA supplying likelihoods",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S6": {
+              "filler": "Uniform sampling over the reference class; added by hand, justified by thought experiments. SIA explicitly rejected",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "E2",
+          "label": "Reference class as observers with identical information",
+          "proponents": [
+            "Garriga",
+            "Vilenkin"
+          ],
+          "subproblems": [
+            "P3",
+            "P4"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S2": {
+              "filler": "Primitive agent with an information state",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S3": {
+              "filler": "No clock",
+              "status": "misfit",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Fraction of the reference class learning each outcome",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0711.2559"
+              ]
+            },
+            "S6": {
+              "filler": "Typicality within the identical-information class; explicit argument that this class is uniquely appropriate",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0711.2559"
+              ]
+            },
+            "S7": {
+              "filler": "Required but NOT supplied; the class is infinite and subclass weights depend on the regularisation, deferred to the measure literature",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0711.2559"
+              ]
+            }
+          }
+        },
+        {
+          "id": "E3a",
+          "label": "Causal patch measure",
+          "proponents": [
+            "Bousso"
+          ],
+          "subproblems": [
+            "P4",
+            "P3(implicit)",
+            "P5(partial)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "A classical eternally-inflating spacetime, not a quantum object",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S2": {
+              "filler": "A worldline",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0605263"
+              ]
+            },
+            "S3": {
+              "filler": "Proper time along that worldline; classical",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Ratios of entropy-production-weighted patch counts; observers NOT counted, entropy substituted in lieu of anthropic criteria",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0605263"
+              ]
+            },
+            "S6": {
+              "filler": "FUSED with S7: the cutoff IS the self-location rule, so the scaffold's separation cannot be maintained",
+              "status": "misfit",
+              "confidence": "INFERENCE",
+              "sources": [
+                "arXiv:hep-th/0605263"
+              ]
+            },
+            "S7": {
+              "filler": "Causal patch cutoff; covariant by construction",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0605263"
+              ]
+            }
+          }
+        },
+        {
+          "id": "E3b",
+          "label": "Light-cone time / boundary measure",
+          "proponents": [
+            "Bousso",
+            "Freivogel",
+            "Leichenauer",
+            "Rosenhaus"
+          ],
+          "subproblems": [
+            "P4",
+            "P3(implicit)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Classical eternally-inflating spacetime plus its future conformal boundary",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1005.2783"
+              ]
+            },
+            "S2": {
+              "filler": "Worldline / causal patch",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1005.2783"
+              ]
+            },
+            "S3": {
+              "filler": "Light-cone time, a global foliation defined from the boundary; classical",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1005.2783"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Ratios of light-cone-time-regulated counts",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S6": {
+              "filler": "Fused with S7, as E3a",
+              "status": "misfit",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S7": {
+              "filler": "Light-cone time cutoff; covariant; conformal frame fixed by constant boundary Ricci scalar",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1005.2783"
+              ]
+            }
+          }
+        },
+        {
+          "id": "E3c",
+          "label": "Scale-factor cutoff measure",
+          "proponents": [
+            "De Simone",
+            "Guth",
+            "Linde",
+            "Noorbala",
+            "Salem",
+            "Vilenkin"
+          ],
+          "subproblems": [
+            "P4",
+            "P3(implicit)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Classical eternally-inflating spacetime",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S2": {
+              "filler": "Observer-instances counted by formation rates; no formal representation",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0808.3778"
+              ]
+            },
+            "S3": {
+              "filler": "Scale factor as time variable; classical",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0808.3778"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Ratio of observer counts inside the cutoff",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0808.3778"
+              ]
+            },
+            "S6": {
+              "filler": "Uniform over observer-instances inside the cutoff; typicality ASSUMED, not derived",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0808.3778"
+              ]
+            },
+            "S7": {
+              "filler": "Scale-factor cutoff; equivalent to the fat geodesic; gives a FINITE Boltzmann-brain ratio",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0808.3778",
+                "arXiv:1105.0244"
+              ]
+            }
+          }
+        },
+        {
+          "id": "E3d",
+          "label": "Stationary measure",
+          "proponents": [
+            "Linde",
+            "Vanchurin",
+            "Winitzki"
+          ],
+          "subproblems": [
+            "P4"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Classical eternally-inflating spacetime",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S2": {
+              "filler": "Observer-instances as counts",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S3": {
+              "filler": "A global time variable; the precise variable was not retrieved",
+              "status": "filled",
+              "confidence": "LEAD",
+              "sources": []
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Ratio of regulated counts",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S6": {
+              "filler": "Uniform over observer-instances",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S7": {
+              "filler": "Stationary measure, advertised as avoiding Boltzmann brains and the youngness paradox. WHETHER IT IS COVARIANT IS UNKNOWN",
+              "status": "filled",
+              "confidence": "UNKNOWN",
+              "sources": [
+                "arXiv:0812.0005"
+              ]
+            }
+          }
+        },
+        {
+          "id": "E4a",
+          "label": "Boltzmann brains as an argument against a hypothesis",
+          "proponents": [
+            "Dyson",
+            "Kleban",
+            "Susskind"
+          ],
+          "subproblems": [
+            "P4",
+            "P3(implicit)",
+            "P5"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "De Sitter spacetime with finite entropy and an assumed discrete spectrum",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0208013"
+              ]
+            },
+            "S2": {
+              "filler": "Observers as microstates of observable matter",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0208013"
+              ]
+            },
+            "S3": {
+              "filler": "Causal-patch proper time",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Relative counts of microstates",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0208013"
+              ]
+            },
+            "S6": {
+              "filler": "Implicit uniform weighting over microstates compatible with our observations",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "E4b",
+          "label": "Can the universe afford inflation",
+          "proponents": [
+            "Albrecht",
+            "Sorbo"
+          ],
+          "subproblems": [
+            "P4"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "A fluctuating equilibrium meta-universe",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0405270"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S3": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Ratio of semiclassical nucleation probabilities",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0405270"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "E4c",
+          "label": "Sinks in the landscape",
+          "proponents": [
+            "Linde"
+          ],
+          "subproblems": [
+            "P4"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Classical eternally-inflating spacetime",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S2": {
+              "filler": "Observer-instances as counts",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S3": {
+              "filler": "Global volume-weighted time slicing",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0611043"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Ratio of regulated volume-weighted observer counts",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0611043"
+              ]
+            },
+            "S6": {
+              "filler": "Uniform over observer-instances",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S7": {
+              "filler": "Global volume weighting; some versions avoid Boltzmann-brain dominance",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0611043"
+              ]
+            }
+          }
+        },
+        {
+          "id": "E4d",
+          "label": "Return of the Boltzmann brains; insufficiency of the quantum state",
+          "proponents": [
+            "Page"
+          ],
+          "subproblems": [
+            "P4",
+            "P3"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Classical eternally-inflating spacetime",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S2": {
+              "filler": "Observer-instances as counts",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S3": {
+              "filler": "An alternative regularisation of global volume weighting",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0611158"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Normalization principle: each theory's likelihoods sum to unity over all possible data sets, so other observers' possible observations LOWER the likelihood of ours",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0707.4169"
+              ]
+            },
+            "S6": {
+              "filler": "Typicality defended; reasoning as if one's observation were a random sample is legitimate",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0707.4169"
+              ]
+            },
+            "S7": {
+              "filler": "The point of dispute: a natural global volume-weighted version still has the Boltzmann-brain problem, showing the infinite-volume ratio is ambiguous",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/0611158",
+                "arXiv:0808.0722"
+              ]
+            }
+          }
+        },
+        {
+          "id": "E5",
+          "label": "Rejection of typicality; the xerographic distribution",
+          "proponents": [
+            "Hartle",
+            "Srednicki"
+          ],
+          "subproblems": [
+            "P3",
+            "P4"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S2": {
+              "filler": "The human scientific information-gathering system, a physical subsystem indexed by location but individuated by its DATA, not by a factorisation",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0906.0042"
+              ]
+            },
+            "S3": {
+              "filler": "A spacetime location label with a classical probability over labels; would be needed even in a classical theory. The spectrum question has no referent",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0906.0042"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Born for third-person probabilities; first-person probabilities are a xerographic-distribution-weighted sum",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0906.0042"
+              ]
+            },
+            "S6": {
+              "filler": "EXPLICIT REFUSAL to assume typicality: a free function, part of the framework, tested jointly with the theory. Cannot even in principle be derived from S1-S5",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0704.2630",
+                "arXiv:0906.0042"
+              ]
+            },
+            "S7": {
+              "filler": "DEMOTED, and the demotion is the finding: a measure is needed for third-person probabilities but does not fix the first-person prediction; leftover freedom is absorbed into the xerographic distribution",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0906.0042"
+              ]
+            }
+          }
+        },
+        {
+          "id": "E6",
+          "label": "Self-locating uncertainty in Everettian branching (bridge; primary home in Cluster A)",
+          "proponents": [
+            "Sebens",
+            "Carroll"
+          ],
+          "subproblems": [
+            "P3",
+            "P2(partial)",
+            "P1(partial)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "A state vector in a global Hilbert space",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S2": {
+              "filler": "A local subsystem with the environment factored out",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1405.7577"
+              ]
+            },
+            "S3": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S4": {
+              "filler": "Decoherence into branches; inherited rather than argued for",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Born rule DERIVED from the epistemic separability principle plus self-locating indifference",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1405.7577"
+              ]
+            },
+            "S6": {
+              "filler": "Indifference over self-locations weighted to yield Born rather than branch-counting; claimed DERIVED",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:1405.7577"
+              ]
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "label": "Algebraic and holographic: the observer as kinematics",
+      "subproblems": [
+        "P5",
+        "P1(partial)"
+      ],
+      "members": [
+        {
+          "id": "F1",
+          "label": "Horizon observer-dependence",
+          "proponents": [
+            "Unruh",
+            "Gibbons",
+            "Hawking"
+          ],
+          "subproblems": [
+            "P5",
+            "P2(Gibbons-Hawking only)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "QFT on a fixed classical background; no global quantum object and none needed",
+              "status": "misfit",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S2": {
+              "filler": "A detector on a worldline; postulated",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "doi:10.1103/PhysRevD.14.870",
+                "doi:10.1103/PhysRevD.15.2738"
+              ]
+            },
+            "S3": {
+              "filler": "The worldline's proper time; external, classical",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "Detector response; and for Gibbons-Hawking the slot is FLAGGED AS A PROBLEM rather than filled: observer-independent particle definitions must be abandoned and something like Everett-Wheeler may be needed",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "doi:10.1103/PhysRevD.15.2738"
+              ]
+            },
+            "S5": {
+              "filler": "Thermal density matrix at the horizon temperature; Born inherited",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "F2",
+          "label": "Complementarity",
+          "proponents": [
+            "Susskind",
+            "Thorlacius",
+            "Uglum",
+            "Dyson",
+            "Lindesay"
+          ],
+          "subproblems": [
+            "P5",
+            "P1(partial)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Global unitary state by postulate; in the de Sitter reading a finite-entropy, finite-dimensional static-patch Hilbert space",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/9306069",
+                "arXiv:hep-th/0202163"
+              ]
+            },
+            "S2": {
+              "filler": "TWO observers, each with a complete description, neither privileged, and NO single description containing both",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/9306069"
+              ]
+            },
+            "S3": {
+              "filler": "Schwarzschild time for the distant observer, proper time for the infalling one",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "Coarse-graining of the horizon's microscopic degrees of freedom",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:hep-th/9306069"
+              ]
+            },
+            "S5": {
+              "filler": "Born on the global state; no argument given",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "F3",
+          "label": "Crossed-product constructions",
+          "proponents": [
+            "Chandrasekaran",
+            "Longo",
+            "Penington",
+            "Witten",
+            "Jensen",
+            "Sorce",
+            "Speranza"
+          ],
+          "subproblems": [
+            "P5",
+            "P1(partial)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "BREAKS in a way the scaffold does not anticipate: the crossed product is by the modular automorphism group OF A SPECIFIC STATE, so an algebra with no preferred state is impossible here; and it attaches to a subregion, not globally",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2206.10780",
+                "arXiv:2112.12828",
+                "arXiv:2306.01837"
+              ]
+            },
+            "S2": {
+              "filler": "A one-degree-of-freedom quantum clock; any system that can tell time; no property but an energy. Imposed, not derived",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2206.10780"
+              ]
+            },
+            "S3": {
+              "filler": "Clock Hamiltonian MUST BE BOUNDED BELOW: unbounded gives Type II-infinity with divergent trace of the identity, bounded below gives Type II-1 with a finite normalised trace. Cost: such a clock cannot tell time perfectly",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2206.10780",
+                "arXiv:2112.12828",
+                "arXiv:2306.01837"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "No probability rule is derived. The one probability relation PRESUPPOSES the Born rule on the trace",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2206.10780"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "F4",
+          "label": "Emergent time from modular structure",
+          "proponents": [
+            "Leutheusser",
+            "Liu"
+          ],
+          "subproblems": [
+            "P1(partial)",
+            "P5"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Type I boundary CFT algebra at finite N with an emergent Type III-1 algebra at infinite N. S1 fits better here than anywhere else in Cluster F",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2112.12156",
+                "arXiv:2110.05497"
+              ]
+            },
+            "S2": {
+              "filler": "An infalling bulk observer given a boundary formulation; DERIVED from boundary data, not adjoined. A different job from CLPW's observer",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2112.12156"
+              ]
+            },
+            "S3": {
+              "filler": "Emergent time from half-sided modular translations",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2112.12156"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Born on the boundary CFT state; inherited",
+              "status": "filled",
+              "confidence": "INFERENCE",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "F5",
+          "label": "Static-patch holography / double-scaled SYK",
+          "proponents": [
+            "Narovlansky",
+            "Verlinde",
+            "Xu",
+            "Susskind"
+          ],
+          "subproblems": [
+            "P5"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Two coupled double-scaled SYK models with an energy-equating constraint",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2310.16994"
+              ]
+            },
+            "S2": {
+              "filler": "EMPTY in the boundary model: the Type II-1 structure arises from the chord algebra itself with NO observer added; the observer enters only in the bulk interpretation",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2310.16994",
+                "arXiv:2403.09021"
+              ]
+            },
+            "S3": {
+              "filler": "SYK time identified with bulk proper time; the energy constraint plays the role CLPW's constraint plays",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2310.16994"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "F6",
+          "label": "Observer-dependence of gravitational entropy",
+          "proponents": [
+            "De Vuyst",
+            "Eccles",
+            "Hoehn",
+            "Kirklin"
+          ],
+          "subproblems": [
+            "P5",
+            "P1"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Perspective-neutral structure admitting arbitrarily many observers",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2405.00114"
+              ]
+            },
+            "S2": {
+              "filler": "Observers ARE quantum reference frames; different frames give different algebras and entropies, so gravitational entropy is observer-dependent and entropies seen by distinct observers can drastically differ",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2405.00114",
+                "arXiv:2412.15502"
+              ]
+            },
+            "S3": {
+              "filler": "A clock of possibly degenerate energy spectrum; CLPW's energy lower bound corresponds to NON-IDEAL clocks with nontrivial projectors",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2405.00114"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Page-Wootters conditional probability, via the proven PW=CLPW equivalence",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:2405.00114"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "G",
+      "label": "Canonical quantum gravity, problem of time, boundary conditions (a SETTING, not an approach, except G3)",
+      "subproblems": [
+        "P1"
+      ],
+      "members": [
+        {
+          "id": "G1",
+          "label": "Wheeler-DeWitt / canonical quantum geometrodynamics",
+          "proponents": [
+            "DeWitt",
+            "Wheeler"
+          ],
+          "subproblems": [
+            "P1(in the sense of posing it)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "A solution of a constraint equation, not a normalised state vector. No positive-definite inner product is known; uniqueness NOT fixed by the equation",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "doi:10.1103/PhysRev.160.1113",
+                "arXiv:gr-qc/9906100",
+                "arXiv:gr-qc/9210011"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S3": {
+              "filler": "There is NO clock; the operator is a constraint, not a generator of evolution. The relevant kinetic term is NOT bounded below, which is why the Klein-Gordon product fails to be positive definite. The absence is the whole content",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9906100"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "G2",
+          "label": "The problem-of-time literature (a taxonomy of S3 fillers)",
+          "proponents": [
+            "Isham",
+            "Kuchar",
+            "Anderson",
+            "Kiefer",
+            "Peter"
+          ],
+          "subproblems": [
+            "P1"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "As G1",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9210011"
+              ]
+            },
+            "S2": {
+              "filler": "The 125-page review never uses the words observer or record in the portion on arXiv",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9210011"
+              ]
+            },
+            "S3": {
+              "filler": "Not an approach but a taxonomy of attempted fillers: time before quantising, after quantising, or no fundamental time. Already CONTAINS Page-Wootters as one branch",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9210011",
+                "arXiv:1009.2157"
+              ]
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "G3a",
+          "label": "No-boundary proposal",
+          "proponents": [
+            "Hartle",
+            "Hawking",
+            "Hertog",
+            "Halliwell"
+          ],
+          "subproblems": [
+            "P1",
+            "P2(via import)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Path integral over compact positive-definite four-geometries. Uniqueness INCOMPLETE: many no-boundary proposals remain until the contour is fixed. Normalisability CONTESTED within the camp",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "doi:10.1103/PhysRevD.28.2960",
+                "doi:10.1103/PhysRevD.41.1815",
+                "arXiv:1812.01760",
+                "arXiv:gr-qc/9906100"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S3": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "Empty in 1983; by 2008 a decoherent-histories record rule IMPORTED from Cluster A2a",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:0803.1663"
+              ]
+            },
+            "S5": {
+              "filler": "Semiclassical probabilities with a volume weighting that boosts many e-foldings; no argument retrieved for this rule over an alternative",
+              "status": "filled",
+              "confidence": "UNKNOWN",
+              "sources": [
+                "arXiv:0803.1663"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "INFERENCE",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "G3b",
+          "label": "Tunneling proposal",
+          "proponents": [
+            "Vilenkin"
+          ],
+          "subproblems": [
+            "P1",
+            "P3(gestural)",
+            "P4(gestural)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "Solution selected by an outgoing-wave boundary condition. Uniqueness INCOMPLETE by the author's own statement; normalisability NOT addressed and no inner product defined",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "doi:10.1103/PhysRevD.33.3560",
+                "arXiv:gr-qc/9403010"
+              ]
+            },
+            "S2": {
+              "filler": "The observer is NAMED AS AN UNSOLVED PROBLEM, not represented: what does a nucleation probability mean when there is only one bubble, and the relation between different observers' wave functions is called an open problem",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9403010"
+              ]
+            },
+            "S3": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S4": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S5": {
+              "filler": "Ratios of the squared wavefunction; no derivation of the rule given",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9403010"
+              ]
+            },
+            "S6": {
+              "filler": "A PROTO-FILLER and a direct bridge to Cluster E: the observer is more likely to find herself in the bubble type with the highest nucleation probability, provided it is suitable for life. Amplitude-weighted self-location plus an anthropic clause, added by hand",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9403010"
+              ]
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        },
+        {
+          "id": "G4",
+          "label": "Semiclassical / WKB emergence of time",
+          "proponents": [
+            "Kiefer",
+            "Singh"
+          ],
+          "subproblems": [
+            "P1",
+            "P2(via handoff)"
+          ],
+          "slots": {
+            "S1": {
+              "filler": "As G1 plus the WKB ansatz, a restriction to a subclass of solutions; not unique",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9906100",
+                "doi:10.1103/PhysRevD.44.1067"
+              ]
+            },
+            "S2": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S3": {
+              "filler": "A time parameter along a classical trajectory, read off the Hamilton-Jacobi phase. NOT quantised, not an operator, so the spectrum question does not apply",
+              "status": "misfit",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9906100"
+              ]
+            },
+            "S4": {
+              "filler": "Decoherence imported from Cluster A plus a low-entropy initial condition; approximate",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9906100"
+              ]
+            },
+            "S5": {
+              "filler": "Born on the matter state only AFTER the approximation holds, so the probability rule exists only after, not before",
+              "status": "filled",
+              "confidence": "SOURCED",
+              "sources": [
+                "arXiv:gr-qc/9906100"
+              ]
+            },
+            "S6": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            },
+            "S7": {
+              "filler": "",
+              "status": "empty",
+              "confidence": "SOURCED",
+              "sources": []
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "a": "A1",
+      "b": "A2a",
+      "slot": "S4",
+      "verdict": "notational_variant",
+      "dictionary": "class operator <-> history-projector string; decoherent set <-> decoherent history space; branch state vector <-> branch; norm-squared of the class-operator image <-> Born weight. Wallace adopts the consistent-histories medium-decoherence condition as the sharp definition of decoherence for Everettian purposes.",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:0712.0149",
+        "arXiv:0806.3776"
+      ],
+      "note": "Residue unresolved: Gell-Mann/Hartle strong decoherence (permanence of generalized records) has no A1 analogue, and medium decoherence does not imply it."
+    },
+    {
+      "a": "A1",
+      "b": "A2b",
+      "slot": "S4",
+      "verdict": "genuine_conflict",
+      "differs_in": "records",
+      "confidence": "SOURCED",
+      "sources": [
+        "plato.stanford.edu/entries/qm-consistent-histories/",
+        "arXiv:0712.0149"
+      ],
+      "note": "The single-framework rule forbids cross-framework conjunctions and leaves them undefined; Everettian branching imposes no such prohibition."
+    },
+    {
+      "a": "A2a",
+      "b": "A2b",
+      "slot": "S4",
+      "verdict": "genuine_conflict",
+      "differs_in": "records",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:0712.0149"
+      ],
+      "note": "Intra-member conflict. The seed treats decoherent histories as one member; it must be split."
+    },
+    {
+      "a": "A1",
+      "b": "A3",
+      "slot": "S1",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:0903.5082"
+      ],
+      "note": "A1 asserts the universal state is real and complete; Zurek calls that assertion unwarranted."
+    },
+    {
+      "a": "A1",
+      "b": "A3",
+      "slot": "S5",
+      "verdict": "non_competing",
+      "confidence": "INFERENCE",
+      "sources": [
+        "arXiv:0906.2718",
+        "arXiv:0903.5082"
+      ],
+      "note": "SCAFFOLD BLINDNESS: identical probabilities from different premises (decision theory vs envariance). The scaffold requires a differing probability for conflict, so it cannot see this disagreement about justification."
+    },
+    {
+      "a": "A2a",
+      "b": "A3",
+      "slot": "S4",
+      "verdict": "non_competing",
+      "confidence": "INFERENCE",
+      "sources": [],
+      "note": "History interference versus information redundancy across fragments: disjoint criteria over different objects."
+    },
+    {
+      "a": "B1",
+      "b": "G2",
+      "slot": "S3",
+      "verdict": "non_competing",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:gr-qc/9210011"
+      ],
+      "note": "Isham classifies the conditional-probability interpretation as one of his three categories, so the problem-of-time literature already contains Page-Wootters as a branch. A frame, not a rival."
+    },
+    {
+      "a": "B1",
+      "b": "B1-dirac-heisenberg",
+      "slot": "S3",
+      "verdict": "notational_variant",
+      "dictionary": "The Hoehn-Smith-Lock trinity: relational Dirac observables in the clock-neutral Dirac picture <-> the Page-Wootters Schrodinger picture <-> the relational Heisenberg picture from symmetry reduction, related by unitary quantum reduction maps, with the conditional probability shown gauge-invariant because it reduces to relational Dirac observables.",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1912.00033"
+      ],
+      "note": "Holds under a stated spectral condition on the clock Hamiltonian, so the equivalence and the spectrum question are not independent."
+    },
+    {
+      "a": "B2",
+      "b": "B3",
+      "slot": "S2",
+      "verdict": "unresolved",
+      "confidence": "SOURCED",
+      "sources": [
+        "plato.stanford.edu/entries/qm-relational/"
+      ],
+      "note": "A sourced difference in S2 fillers, but NO differing probability, record or observable was established, so by the scaffold's own rule this is not conflict."
+    },
+    {
+      "a": "B2",
+      "b": "B4",
+      "slot": "S1",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "INFERENCE",
+      "sources": [
+        "plato.stanford.edu/entries/qm-relational/",
+        "arXiv:1811.00611"
+      ],
+      "note": "Incompatible S1 fillers: no quantum state of the universe versus a perspective-neutral global state. NO PUBLISHED EXCHANGE between the camps was found, which is itself a finding."
+    },
+    {
+      "a": "B4",
+      "b": "B4",
+      "slot": "S1",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1712.07207",
+        "arXiv:1811.00611"
+      ],
+      "note": "Intra-member: one branch denies any frame-independent global object, the other asserts one, despite shared authorship on one paper."
+    },
+    {
+      "a": "B3",
+      "b": "B1",
+      "slot": "S1",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "INFERENCE",
+      "sources": [
+        "arXiv:1003.5209",
+        "arXiv:1504.04215"
+      ],
+      "note": "QBism permits a universal state only as one agent's personal judgment; Page-Wootters requires an observer-independent constraint-satisfying global vector."
+    },
+    {
+      "a": "C",
+      "b": "D",
+      "slot": "S4",
+      "verdict": "non_competing",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1906.04405",
+        "arXiv:1601.03734"
+      ],
+      "note": "Difference of SCOPE: C fills S4 with an exact dynamical rule and targets P2; D fills it with an approximate equivalence and explicitly DECLINES P2. The D side concedes the restricted claim rather than disputing it."
+    },
+    {
+      "a": "C",
+      "b": "D",
+      "slot": "S5",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1207.2086",
+        "arXiv:1906.04405",
+        "arXiv:1801.09949"
+      ],
+      "note": "Both modify the curvature power spectrum with different functional forms. GAP, not agreement: no paper was found setting the two predictions against each other to ask which the data prefer."
+    },
+    {
+      "a": "C4-martin-vennin",
+      "b": "C4-gundhi",
+      "slot": "S4",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1906.04405",
+        "arXiv:2102.07688"
+      ],
+      "note": "Bounds differ by roughly 97 orders of magnitude, entirely from the choice of collapse operator. One concludes a version of CSL is ruled out; the other that the CMB constrains nothing. Live."
+    },
+    {
+      "a": "D1",
+      "b": "D5",
+      "slot": "S4",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:2112.04092"
+      ],
+      "note": "D5 says D1's S4 filler is INVALID, not merely restricted. Does not touch D2-D4. Live, no published reply retrieved."
+    },
+    {
+      "a": "E1c",
+      "b": "SIA",
+      "slot": "S6",
+      "verdict": "genuine_conflict",
+      "differs_in": "probabilities",
+      "confidence": "SOURCED",
+      "sources": [
+        "anthropic-principle.com/phd/phdhtml"
+      ],
+      "note": "SIA multiplies a hypothesis's prior by its observer count; SSA does not. Same physical state, different posterior."
+    },
+    {
+      "a": "E1c",
+      "b": "E2",
+      "slot": "S6",
+      "verdict": "genuine_conflict",
+      "differs_in": "probabilities",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:0711.2559"
+      ],
+      "note": "Reference-class specification: a broad class assigns nonzero weight to observers with different evidence; identical-information fixes it at zero."
+    },
+    {
+      "a": "E2",
+      "b": "E5",
+      "slot": "S6",
+      "verdict": "genuine_conflict",
+      "differs_in": "probabilities",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:0711.2559",
+        "arXiv:0704.2630"
+      ],
+      "note": "THE SHARPEST STRUCTURAL FACT IN THE CLUSTER: both independently restrict to observers with exactly the same data, then draw OPPOSITE conclusions about typicality."
+    },
+    {
+      "a": "E3-proper-time",
+      "b": "E3c",
+      "slot": "S7",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1105.0244"
+      ],
+      "note": "Youngness paradox with a number: the proper-time cutoff favours observing the universe at 13 rather than 13.7 Gyr by a factor of order exp(10^60). The review states it conflicts with observation and that scale-factor time does not."
+    },
+    {
+      "a": "E3c",
+      "b": "E3-fat-geodesic",
+      "slot": "S7",
+      "verdict": "notational_variant",
+      "dictionary": "Equivalence asserted in the review's section 5; a term-by-term dictionary was NOT verified.",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1105.0244"
+      ]
+    },
+    {
+      "a": "E3b",
+      "b": "E3-causal-diamond",
+      "slot": "S7",
+      "verdict": "notational_variant",
+      "dictionary": "Equivalence asserted in the review's section 5; a term-by-term dictionary was NOT verified.",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1105.0244"
+      ]
+    },
+    {
+      "a": "E3a",
+      "b": "E3b",
+      "slot": "S7",
+      "verdict": "unresolved",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:0901.4806",
+        "arXiv:1005.2783"
+      ],
+      "note": "The same probability measure is reported, with causal-patch initial conditions set by the global description's late-time attractor, and the construction is named (bulk-to-boundary light-cone map, constant boundary Ricci scalar). But the dictionary was not verified term by term, so the scaffold's strict rule gives unresolved rather than notational_variant."
+    },
+    {
+      "a": "E3a",
+      "b": "E3-fat-geodesic",
+      "slot": "S5",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1204.1569"
+      ],
+      "note": "EMPIRICALLY IDLE CONFLICT: both predict a one-point expectation for the gauge-invariant Newtonian potential and a related three-point contribution, with detailed forms that differ between the measures, but both lie well within cosmic variance."
+    },
+    {
+      "a": "E4a",
+      "b": "E4b",
+      "slot": "S5",
+      "verdict": "genuine_conflict",
+      "differs_in": "probabilities",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:hep-th/0208013",
+        "arXiv:hep-th/0405270"
+      ],
+      "note": "Same question (is inflation favoured), opposite exponential answers, from differently specified counting. Both sides state it is unresolved. Live."
+    },
+    {
+      "a": "E4c",
+      "b": "E4d",
+      "slot": "S7",
+      "verdict": "genuine_conflict",
+      "differs_in": "probabilities",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:hep-th/0611043",
+        "arXiv:hep-th/0611158"
+      ],
+      "note": "Unusually clean: both inside the global volume-weighted family, disagreeing on whether it avoids Boltzmann-brain dominance. The difference traces entirely to the regularisation, which is Page's point."
+    },
+    {
+      "a": "E3a",
+      "b": "E4c",
+      "slot": "S7",
+      "verdict": "genuine_conflict",
+      "differs_in": "probabilities",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:hep-th/0605263",
+        "arXiv:hep-th/0611043"
+      ],
+      "note": "TERMINOLOGICAL TRAP: same words, global and local, opposite verdicts on which description is pathological."
+    },
+    {
+      "a": "E5",
+      "b": "E6",
+      "slot": "S6",
+      "verdict": "genuine_conflict",
+      "differs_in": "probabilities",
+      "confidence": "INFERENCE",
+      "sources": [
+        "arXiv:0906.0042",
+        "arXiv:1405.7577"
+      ],
+      "note": "Structurally allied, substantively opposed, about DERIVABILITY: one holds the self-location rule cannot even in principle be derived from dynamics and state; the other claims to derive it from the epistemic separability principle. NEITHER ENGAGES THE OTHER. Highest-value head-to-head for a later run."
+    },
+    {
+      "a": "E6",
+      "b": "E1c",
+      "slot": "S6",
+      "verdict": "genuine_conflict",
+      "differs_in": "probabilities",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1405.7577"
+      ],
+      "note": "Both are self-location rules over instances with identical evidence; SSA samples uniformly, Sebens-Carroll weight by squared amplitude. The sharpest cross-cluster conflict in the map."
+    },
+    {
+      "a": "F3",
+      "b": "measurement-problem-observer",
+      "slot": "S2",
+      "verdict": "non_competing",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:2206.10780",
+        "arXiv:2303.02837",
+        "arXiv:2405.00114"
+      ],
+      "note": "THE RUN'S PRIORITY ANSWER. Disjoint slots: S2/S3 versus S4/S5; disjoint sub-problems: P5 and (via Page-Wootters) P1 versus P2. Not notational variants, since no dictionary exists and the algebraic observer has no S4 filler. Not in genuine conflict, since nothing differs. Witten states the contrast of role himself in print."
+    },
+    {
+      "a": "F3",
+      "b": "B1",
+      "slot": "S3",
+      "verdict": "notational_variant",
+      "dictionary": "PW=CLPW, proven: clock and clock Hamiltonian <-> the observer's modular/boost clock; total-Hamiltonian constraint <-> CLPW constraint; group averaging <-> CLPW's map; conditioning on a clock reading <-> reduction at zero clock time; reduced state <-> image of CLPW's map; dressed observable <-> static-patch algebra element dressed to the clock; Page-Wootters projector (trivial for ideal clocks) <-> the energy-bound projection; Page-Wootters algebra <-> the crossed product; thermal-clock trace <-> the trace on the crossed product.",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:2405.00114"
+      ],
+      "note": "THE ONE PUBLISHED BRIDGE from the algebraic literature to anything foundations-adjacent, and it goes to the PROBLEM OF TIME, not to measurement. Caveat from the same paper: CLPW's energy lower bound corresponds to NON-IDEAL clocks with nontrivial projectors, so Type II-1 is not a bare variant of ideal Page-Wootters."
+    },
+    {
+      "a": "F3",
+      "b": "F6",
+      "slot": "S2",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "INFERENCE",
+      "sources": [
+        "arXiv:2206.10780",
+        "arXiv:2405.00114"
+      ],
+      "note": "CLPW present one observer and one entropy for the static patch; the quantum-reference-frame treatment shows entropy depends on which frame is used. Removes CLPW's uniqueness claim. Presented by its authors as a feature, so recorded as an extension."
+    },
+    {
+      "a": "F3",
+      "b": "F2",
+      "slot": "S1",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "INFERENCE",
+      "sources": [
+        "arXiv:hep-th/0202163",
+        "arXiv:2206.10780"
+      ],
+      "note": "The de Sitter complementarity reading requires a finite-dimensional (type I) static-patch Hilbert space; CLPW get Type II-1, infinite-dimensional with a finite trace. Different algebra types for the same physical system."
+    },
+    {
+      "a": "F3",
+      "b": "F4",
+      "slot": "S2",
+      "verdict": "non_competing",
+      "confidence": "INFERENCE",
+      "sources": [],
+      "note": "The same word denotes two different things INSIDE one cluster: a degree of freedom adjoined to produce a trace versus a trajectory reconstructed from boundary data."
+    },
+    {
+      "a": "F2",
+      "b": "F3",
+      "slot": "S2",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "INFERENCE",
+      "sources": [],
+      "note": "Two kinds of observer-dependence: two mutually inaccessible descriptions with no common framework, versus one framework in which the observer is a subsystem. Nobody retrieved reconciles them."
+    },
+    {
+      "a": "G1",
+      "b": "A1",
+      "slot": "S1",
+      "verdict": "non_competing",
+      "confidence": "INFERENCE",
+      "sources": [],
+      "note": "A dependency, not a rivalry: G1 IS their S1."
+    },
+    {
+      "a": "G3a",
+      "b": "G3b",
+      "slot": "S1",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:1703.02076",
+        "arXiv:gr-qc/9403010"
+      ],
+      "note": "THE SIGN OF THE EXPONENT FLIPS: with Picard-Lefschetz theory the dominant saddle's exponential factor is precisely the inverse of the Hartle-Hawking result, so the two proposals order the probability of inflation oppositely. A second layer of dispute over perturbation suppression is live and unsettled."
+    },
+    {
+      "a": "G3b",
+      "b": "E1c",
+      "slot": "S6",
+      "verdict": "non_competing",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:gr-qc/9403010"
+      ],
+      "note": "A BRIDGE: Vilenkin's review contains an amplitude-weighted self-location rule with an anthropic admissibility clause, added by hand. This is the bridge the seed's Known gaps section was looking for."
+    },
+    {
+      "a": "G3a",
+      "b": "A2a",
+      "slot": "S4",
+      "verdict": "non_competing",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:0803.1663"
+      ],
+      "note": "Dependency: decoherent histories imported to get records out of the no-boundary state."
+    },
+    {
+      "a": "G4",
+      "b": "B1",
+      "slot": "S3",
+      "verdict": "unresolved",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:gr-qc/9906100",
+        "arXiv:1912.00033",
+        "arXiv:2303.14854"
+      ],
+      "note": "DO NOT claim notational variance. Three sourced differences: exactness (asymptotic recovery vs exact rewriting), operator versus parameter (covariant POVM vs Hamilton-Jacobi phase), and whether the relational route needs the semiclassical route as input. No dictionary in any source retrieved; four sources checked for a connection and none makes it."
+    },
+    {
+      "a": "G1",
+      "b": "goldstein-teufel",
+      "slot": "S1",
+      "verdict": "genuine_conflict",
+      "differs_in": "observables",
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:quant-ph/9902018",
+        "arXiv:gr-qc/9210011"
+      ],
+      "note": "A disagreement about the DIRECTION of explanation: that both the problem of time and the observable problem come from orthodox quantum theory's observer-dependence and dissolve given ontological clarity, making the observer problem PRIOR to the problem of time. The scaffold has no slot for this."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "X1",
+      "statement": "A global quantum state of the universe exists as a physical object",
+      "held_by": [
+        "A1",
+        "A2a",
+        "E6",
+        "B1",
+        "B4",
+        "G1",
+        "G3a",
+        "G3b"
+      ],
+      "denied_by": [
+        "B2",
+        "B3(observer-independence only)"
+      ],
+      "load_bearing_for": [
+        "P1"
+      ],
+      "confidence": "SOURCED",
+      "sources": [
+        "plato.stanford.edu/entries/qm-relational/",
+        "arXiv:1003.5209",
+        "arXiv:1504.04215"
+      ],
+      "note": "Three materially different affirmative answers: a normalisable state vector; a non-normalisable constraint solution; a Hamiltonian-plus-initial-state pair with uniqueness an input. SEED CORRECTION: QBism denies the OBSERVER-INDEPENDENCE, not the state. A pure universal state is 'certainly allowed in principle' as one agent's judgment about the universe minus herself, the agent being outside the SYSTEM OF INTEREST rather than outside the universe. Zurek brackets the question deliberately."
+    },
+    {
+      "id": "X2",
+      "statement": "Observers can be counted, and instance-counting is the right operation for likelihoods",
+      "held_by": [
+        "E1c",
+        "E2",
+        "E3c",
+        "E4a",
+        "E4c",
+        "E4d",
+        "azhar-guth-namjoo"
+      ],
+      "denied_by": [
+        "E5",
+        "E6"
+      ],
+      "load_bearing_for": [
+        "P3",
+        "P4"
+      ],
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:0704.2630",
+        "arXiv:1405.7577",
+        "arXiv:hep-th/0605263"
+      ],
+      "note": "Hartle-Srednicki deny counting as a WEIGHTING OPERATION, not merely a regularisation, so the disagreement cannot be resolved by choosing a better measure. Sebens-Carroll deny it for a different reason (amplitude-squared, not branch-counting). Bostrom himself partially denies it on the EXTENSION of 'observer'. Bousso avoids counting entirely by substituting entropy production in a patch."
+    },
+    {
+      "id": "X3",
+      "statement": "Typicality is an assumption requiring justification rather than a background condition of prediction",
+      "held_by": [
+        "E5",
+        "azhar-2015"
+      ],
+      "denied_by": [
+        "E4d",
+        "E2",
+        "E3c",
+        "azhar-guth-namjoo"
+      ],
+      "load_bearing_for": [
+        "P3",
+        "P4"
+      ],
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:0704.2630",
+        "arXiv:0906.0042",
+        "arXiv:0707.4169",
+        "arXiv:2602.02667",
+        "arXiv:1506.05308"
+      ],
+      "note": "FOUR positions, not two. A third is held by BOTH sides: that in a complete quantum cosmology no separate typicality assumption would be needed because it would be implied, and Hartle-Srednicki's own sentence is quoted and endorsed by Page. A fourth (no privileged choices, hence untestable) has NO VERIFIED REPRESENTATIVE. And typicality is not even one option: two inequivalent uniform xerographic distributions give different likelihoods. DATED: Hartle-Hertog 2017 assumes the observer is equally likely to be any instance of the observational situation, i.e. adopts the typicality choice shown non-derivable, without retracting the framework."
+    },
+    {
+      "id": "X4",
+      "statement": "'Observer' denotes the same thing in the algebraic de Sitter literature and in the measurement-problem literature",
+      "held_by": [],
+      "denied_by": [
+        "F3",
+        "F6"
+      ],
+      "load_bearing_for": [
+        "P5",
+        "P2"
+      ],
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:2206.10780",
+        "arXiv:2303.02837",
+        "arXiv:2405.00114",
+        "doi:10.1103/PhysRevD.15.2738"
+      ],
+      "note": "SETTLED NO, and this was the run's highest-priority question. The algebraic observer is a quantised clock or quantum reference frame; one degree of freedom suffices; no record, apparatus, pointer basis, classicality or macroscopicity. Witten states the contrast of role himself. The word denotes two different things even INSIDE Cluster F. The one published bridge goes to the problem of time. UNEXPECTED FINDING: Gibbons-Hawking 1977 suggested something like Everett-Wheeler may be needed, and the 2022-onward descendants cite them for the entropy while dropping the interpretive thread entirely."
+    },
+    {
+      "id": "X5",
+      "statement": "Quantum theory is exact rather than approximately valid",
+      "held_by": [
+        "A1",
+        "A2a",
+        "A2b",
+        "A3",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "F3",
+        "G1",
+        "G4"
+      ],
+      "denied_by": [
+        "C1",
+        "C3",
+        "C4"
+      ],
+      "load_bearing_for": [
+        "P2"
+      ],
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:quant-ph/0302164",
+        "arXiv:1906.04405"
+      ],
+      "note": "THE CLEANEST FLAT CONTRADICTION IN THE INVENTORY, and not on the prompt's list. Unusually for this field it is empirically live: both programmes modify the curvature power spectrum with different functional forms."
+    },
+    {
+      "id": "X6",
+      "statement": "The clock Hamiltonian's spectrum must be bounded below",
+      "held_by": [
+        "F3",
+        "F6"
+      ],
+      "denied_by": [
+        "B1"
+      ],
+      "load_bearing_for": [
+        "P1",
+        "P5"
+      ],
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:2206.10780",
+        "arXiv:1504.04215",
+        "arXiv:1912.00033",
+        "arXiv:gr-qc/9906100",
+        "arXiv:2405.00114"
+      ],
+      "note": "THE RUN'S MOST UNEXPECTED STRUCTURAL FINDING, unanticipated by the seed. The same spectral property is the pivot in three clusters with different signs: in Wheeler-DeWitt the kinetic term is unbounded below and that is why the inner product fails (a PROBLEM); Page-Wootters in its GLM form REQUIRES unboundedness and is non-normalisable in consequence; the de Sitter crossed product REQUIRES boundedness below to get a finite trace. Connected by the published PW=CLPW equivalence plus the non-ideal-clock caveat, these are one TRADE-OFF: a clock that tells time perfectly has an unbounded spectrum and gives no finite trace, while a clock with a finite trace cannot tell time perfectly. CLPW concede the cost in a footnote. NO RETRIEVED SOURCE STATES THE TRADE-OFF IN THESE TERMS."
+    },
+    {
+      "id": "X7",
+      "statement": "The cosmological collapse operator can be fixed by naturalness or consistency arguments",
+      "held_by": [
+        "C4-martin-vennin"
+      ],
+      "denied_by": [
+        "C4-bengochea",
+        "C4-gundhi"
+      ],
+      "load_bearing_for": [
+        "P2"
+      ],
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:2103.01697",
+        "arXiv:2006.05313",
+        "arXiv:2102.07688"
+      ],
+      "note": "The whole ~97-order-of-magnitude disagreement about whether the CMB rules out CSL reduces to this."
+    },
+    {
+      "id": "X8",
+      "statement": "Statistical equivalence to a classical stochastic ensemble constitutes definiteness of outcomes",
+      "held_by": [],
+      "denied_by": [
+        "D1",
+        "D2",
+        "D3",
+        "C4",
+        "D5"
+      ],
+      "load_bearing_for": [
+        "P2"
+      ],
+      "confidence": "SOURCED",
+      "sources": [
+        "arXiv:gr-qc/9504030",
+        "arXiv:0810.0087",
+        "arXiv:1601.03734",
+        "arXiv:1510.04038"
+      ],
+      "note": "HELD BY NOBODY once sources are read, which answers Cluster D's priority question. Polarski-Starobinsky state no definite numerical values can be ascribed; Kiefer-Polarski call the result an APPARENT ensemble and not sufficient for a realistic interpretation; Nelson explicitly disclaims the measurement problem. Martin-Vennin 2016 make it quantitative: a zero-discord state reproduces the power spectrum exactly regardless of squeezing. The conflation is widespread in secondary discussion but not in the primary sources."
+    }
+  ],
+  "scaffold_misfits": [
+    {
+      "slot": "S1",
+      "cluster": "F",
+      "problem": "The filler 'an algebra of observables with no preferred state' is UNUSABLE: every crossed-product construction is a crossed product by the modular automorphism group OF A SPECIFIC STATE, so the algebra cannot be specified without first specifying a state. S1 also presumes a global object where these attach to a subregion, and the object's TYPE changes depending on whether the observer is included, so S1 cannot be filled once.",
+      "proposed_fix": "Split S1 into S1a (the algebra or state space) and S1b (the distinguished state its definition requires, possibly 'none'). This would also let thermal time be recorded correctly as the one approach whose S1 genuinely is an algebra with no preferred state."
+    },
+    {
+      "slot": "S1",
+      "cluster": "C,D",
+      "problem": "Both clusters work with a SUBSYSTEM state on a fixed classical background and supply no global object at all. For C this is structural, the formalism being non-relativistic in origin.",
+      "proposed_fix": "Allow 'no global object; works with a subsystem state on a fixed background' as an explicit filler rather than forcing a misfit."
+    },
+    {
+      "slot": "S3",
+      "cluster": "G,E,B5,A2a,G4",
+      "problem": "S3 presupposes a clock exists and then asks for its spectrum. For five entries the presupposition FAILS, and in Wheeler-DeWitt the absence of a clock is the entire content of the approach. Thermal time's filler is modular flow, not a Hamiltonian clock. In Cluster E the index is a reference-class membership or spacetime location with a classical distribution over it, so the spectrum question has no referent.",
+      "proposed_fix": "Make S3's first question 'is there a clock at all?', with 'no, and here is what replaces it' a first-class filler. Keep the spectrum as a sub-question applying only when the answer is yes, where it is extremely productive."
+    },
+    {
+      "slot": "S3",
+      "cluster": "C,D",
+      "problem": "Every single approach in both clusters fills S3 identically (external background conformal time, unquantised, no clock degree of freedom), so the slot cannot discriminate among them at all. This is the exact opposite of Clusters B and F, where S3 is the primary discriminator.",
+      "proposed_fix": "State which slots are expected to discriminate in which regions of the problem, rather than presenting seven slots as uniformly informative."
+    },
+    {
+      "slot": "S4/S5",
+      "cluster": "B1",
+      "problem": "The separation fails: Page-Wootters' only candidate record rule IS the conditional-probability construction, so conditioning is a probability construction rather than a definiteness mechanism, and splitting the two produces a misfit rather than two entries.",
+      "proposed_fix": "Permit a single joint S4/S5 entry where an approach denies the separation, with the denial recorded."
+    },
+    {
+      "slot": "S6/S7",
+      "cluster": "E3a,E3b",
+      "problem": "The two slots FUSE in the causal-patch family: the cutoff IS the self-location rule, so the scaffold's separation of 'how is the observer located' from 'how are infinite counts regularised' cannot be maintained.",
+      "proposed_fix": "Allow a fused S6/S7 entry, flagged as fused."
+    },
+    {
+      "slot": "S7",
+      "cluster": "E5",
+      "problem": "DEMOTED rather than filled or empty, and the demotion is a result. The scaffold treats S7 as the rule that fixes ratios of divergent counts and thereby fixes predictions; Hartle-Srednicki accept a measure is needed for third-person probabilities, accept that solving the measure problem would make a uniform distribution well defined, and DENY that it fixes the prediction, with leftover freedom absorbed into the self-location rule. For their 2007 paper it is closer to an outright misfit, since instance-counting as a weighting operation is denied at all.",
+      "proposed_fix": "Add a status 'demoted' meaning the approach accepts the slot's object exists but denies it does the work the scaffold assigns it."
+    },
+    {
+      "slot": "S5",
+      "cluster": "A",
+      "problem": "The scaffold CANNOT SEE disagreement about justification. Cluster A contains three mutually independent derivations of the same S5 output (decision-theoretic rationality, envariance, 'probabilities are basic'); the comparison rule requires a differing probability for conflict, so these must be classified non_competing, which is formally correct and substantively misleading.",
+      "proposed_fix": "Add a verdict 'same_output_different_grounds', or a per-slot field recording what argument is offered for the filler. The latter is already half-present, since several slots ask 'derived or postulated'."
+    },
+    {
+      "slot": "(cross-cutting)",
+      "cluster": "G,B,A",
+      "problem": "MISSING DIMENSION: several of the most interesting relations found are not disagreements about slot contents but about WHICH SUB-PROBLEM IS PRIOR. Chua-Callender argue observation presupposes time so an observer cannot license the approximation that produces time; Goldstein-Teufel argue the observer problem is prior to the problem of time; Hartle treats a preferred time and a measurement primitive as one pair of presuppositions. The scaffold assumes P1-P5 are independent coordinates and has no place to record any of it.",
+      "proposed_fix": "Add a per-approach field recording claimed dependencies among P1-P5, with direction. On this run's evidence it would be unusually well populated."
+    }
+  ],
+  "open_questions": [
+    {
+      "question": "Does the Type II-1 structure constrain which records are possible?",
+      "why_it_matters": "The only route found by which Cluster F could bear on P2 after all, which would overturn this run's answer to its own highest-priority question.",
+      "what_would_settle_it": "A derivation of a preferred basis or record rule from the Type II-1 structure, or a demonstration that the trace or entropy fixes an outcome probability in a way not already assumed. CLPW's own probability relation runs the other way, assuming Born on the trace.",
+      "priority": 1
+    },
+    {
+      "question": "Can the observer's energy lower bound be derived rather than imposed by hand?",
+      "why_it_matters": "The bound is the entire mechanism separating Type II-1 from Type II-infinity, so its status decides whether the de Sitter entropy normalisation is physics or a modelling choice.",
+      "what_would_settle_it": "arXiv:2601.07910 (Klinger, Kudler-Flam, Satishchandran), reported to argue that proper accounting of the observer's rotational kinetic and binding energy implies Type II-1. NOT FETCHED; the single highest-value unretrieved item in the run. Also Espindola-Ali, who give a different condition (positivity of the observer kernel) and note boundedness does not imply positivity for the conformal sector.",
+      "priority": 2
+    },
+    {
+      "question": "Is the clock trade-off a real theorem, and has anyone stated it?",
+      "why_it_matters": "If it is a theorem it is a genuine constraint on what a cosmological observer can be, and the first result binding Clusters B, F and G together. A clock telling time perfectly needs an unbounded spectrum and yields no finite trace; a clock with a finite trace cannot tell time perfectly.",
+      "what_would_settle_it": "The De Vuyst et al. sections on degenerate and non-ideal clocks, not reached; and the Hoehn-Smith-Lock companion on degenerate clock Hamiltonians.",
+      "priority": 3
+    },
+    {
+      "question": "Do collapse and decoherence predictions for the curvature power spectrum discriminate against data?",
+      "why_it_matters": "The only place in the entire map where a genuinely-conflicting pair of approaches to P2 could be settled observationally rather than argued, and it sits on the field's cleanest flat contradiction (whether quantum theory is exact).",
+      "what_would_settle_it": "A forward citation search for work citing both the open-EFT decoherence constraints (arXiv:1801.09949) and the CSL cosmological exclusion (arXiv:1906.04405). No such paper was found.",
+      "priority": 4
+    },
+    {
+      "question": "Does Page-Wootters survive the Unruh-Wald objection, and is semiclassical time doing the same job?",
+      "why_it_matters": "If the conditional-probability interpretation requires a preferred time variable, Page-Wootters is not an alternative to semiclassical time but a construction needing it as input, which converts a rivalry into a dependency and relocates Cluster B inside Cluster G.",
+      "what_would_settle_it": "The Unruh-Wald paper itself (currently a lead with unverified pagination), Isham's unlocated part 2 section 6.2, Kuchar 2011, or Kiefer-Peter arXiv:2112.05788.",
+      "priority": 5
+    },
+    {
+      "question": "Is the Gell-Mann/Hartle records condition substantive or a theorem?",
+      "why_it_matters": "Decides whether Everettianism-plus-decoherence and decoherent histories differ in S4 at all beyond the single-framework rule.",
+      "what_would_settle_it": "A source stating whether strong decoherence is generically satisfied by quasiclassical coarse-grainings, or a counterexample. Also relevant: Strasberg-Reinhard-Schindler, Phys. Rev. X 14, 041027 (2024), claiming a set-selection solution relying on none of environmental decoherence, quantum Darwinism, Markov approximations, low-entropy initial states or ensemble averages.",
+      "priority": 6
+    },
+    {
+      "question": "Hartle-Srednicki against Sebens-Carroll on whether the self-location rule is derivable",
+      "why_it_matters": "A flat contradiction about what is derivable, between the two most careful treatments of P3 in the field, sitting exactly on the only bridge between the two halves of the map. Neither paper engages the other.",
+      "what_would_settle_it": "A direct comparison, which does not appear to exist. Nearest existing input is Kent's critique of the epistemic separability principle, for which NO LOCATOR WAS OBTAINED.",
+      "priority": 7
+    },
+    {
+      "question": "Does the double-scaled SYK Type II-1 result make the clock dispensable?",
+      "why_it_matters": "In that model Type II-1 arises from the chord algebra itself with no observer added. If the identification with the de Sitter static patch holds, the boundary model produces the same algebra type without a clock, making the clock a feature of the bulk presentation rather than of the physics.",
+      "what_would_settle_it": "The static-patch dictionary sections of arXiv:2403.09021, not read; and the Rahman-Susskind dispute over the Narovlansky-Verlinde proposal, neither item fetched.",
+      "priority": 8
+    },
+    {
+      "question": "Is there a conceptual link between cosmic variance and the measure problem?",
+      "why_it_matters": "Observational cosmology has a worked frequentist treatment of having one sky. If genuinely continuous with the measure problem, one of the field's hardest problems has an existing partial solution in a neighbouring discipline.",
+      "what_would_settle_it": "A paper deriving cosmic variance as a special case of a self-locating measure, or treating the choice of observable volume as a measure choice. Searched twice and not found; the nearest result treats cosmic variance as the NOISE FLOOR that masks measure dependence, which is the opposite of identifying them.",
+      "priority": 9
+    },
+    {
+      "question": "Did the algebraic literature's abandonment of the Everett-Wheeler thread lose anything?",
+      "why_it_matters": "Gibbons-Hawking suggested in 1977 that observer-dependence of the metric might require something like Everett-Wheeler; the modern descendants cite them for the entropy and drop the interpretation.",
+      "what_would_settle_it": "Reading the 1977 argument for the suggestion directly, which this run did not do (it has only a database paraphrase), and checking whether any intermediate paper engaged it.",
+      "priority": 10
+    },
+    {
+      "question": "Are P1 and P5 a single problem in two vocabularies, with the clock's spectrum as the shared variable?",
+      "why_it_matters": "A SYNTHESIS THIS RUN DECLINED TO BUILD, recorded here per the prompt's constraints. The slot-complementarity result, the clock trade-off and the PW=CLPW bridge together suggest it, while P2 and P4 appear to remain genuinely separate problems attacked by non-overlapping communities.",
+      "what_would_settle_it": "Whether it is a real unification or an artefact of the scaffold is exactly what a later run should test, and it should be tested by someone who did not build the scaffold.",
+      "priority": 11
+    },
+    {
+      "question": "Is the one observational prediction from a crossed-product algebra sound?",
+      "why_it_matters": "Gomez arXiv:2207.06704 is the only retrieved member of Cluster F claiming a prediction from the algebra, hence the only route from the algebraic programme to item 4 of the repository's own progress list.",
+      "what_would_settle_it": "A reading of the derivation, the companion arXiv:2304.11845 (not fetched), and arXiv:2407.20671, reported to argue the pure de Sitter algebra defined as a limit is algebraically nonexistent.",
+      "priority": 12
+    }
+  ],
+  "unverified_leads": [
+    {
+      "claim": "arXiv:2601.07910 argues the observer's rotational kinetic and binding energy imply Type II-1, i.e. the energy bound is derivable",
+      "needed": "Fetch the abstract page. Highest-value unretrieved item in the run."
+    },
+    {
+      "claim": "arXiv:2406.01669, Algebraic Observational Cosmology, asks what an observer in our universe can measure",
+      "needed": "Fetch the abstract page. Most measurement-adjacent title in Cluster F."
+    },
+    {
+      "claim": "arXiv:2407.20671 argues the pure de Sitter algebra defined as a limit is algebraically nonexistent",
+      "needed": "Fetch the abstract page and relevant section. A direct criticism of CLPW's starting point if correct."
+    },
+    {
+      "claim": "Kent's critique of Sebens-Carroll, Foundations of Physics 2015",
+      "needed": "NO LOCATOR OBTAINED. A Springer search or Kent's arXiv listing."
+    },
+    {
+      "claim": "Norton, Eternal Inflation: When Probabilities Fail, argues there are no privileged choices of measure or observer proxy",
+      "needed": "NO LOCATOR OBTAINED. PhilSci-Archive. It is a fourth position on typicality with no representative in the verified map."
+    },
+    {
+      "claim": "Unruh & Wald 1989, Phys. Rev. D 40, 2598, hold the conditional-probability interpretation requires a preferred time variable",
+      "needed": "APS landing page or a text-layer PDF. Pagination and the abstract paraphrase come from search digests only; load-bearing for open question 5."
+    },
+    {
+      "claim": "Whether anyone has set collapse-modified against decoherence-modified power spectra",
+      "needed": "Forward-citation search intersecting arXiv:1801.09949 and arXiv:1906.04405."
+    },
+    {
+      "claim": "Zeh 1970, Joos-Zeh 1985, Griffiths 1984, Omnes 1992 contents",
+      "needed": "Locators verified via Crossref but PUBLISHER PAGES BLOCKED, so none of these texts was read. No slot filler is sourced to their text."
+    },
+    {
+      "claim": "Page & Wootters 1983 original clock assumptions",
+      "needed": "Phys. Rev. D 27, 2885 full text. The 1983 text was not read; B1's clock-spectrum requirement comes from the GLM revival, not the original."
+    },
+    {
+      "claim": "Penrose 1996 and Diosi 1989 contents, including the reduction timescale and whether a probability rule is supplied",
+      "needed": "Non-paywalled copies, or the Diosi-Penrose section of the Bassi et al. Rev. Mod. Phys. review. The timescale formula was deliberately NOT stated in Part 1."
+    },
+    {
+      "claim": "DeWitt 1967 imposed a vanishing wavefunction at zero scale factor and endorsed the Everett interpretation",
+      "needed": "An OCR'd or publisher HTML copy. Reachable copies are image scans with no text layer. NOT ASSERTED in Part 1."
+    },
+    {
+      "claim": "Carter 1974's wording of the weak and strong anthropic principles",
+      "needed": "An OCR'd copy of pp. 291-298 or the Gen. Rel. Grav. Golden Oldie reprint. UNKNOWN and deliberately not paraphrased."
+    },
+    {
+      "claim": "Everything about Barrow & Tipler 1986's content, including WAP/SAP/FAP",
+      "needed": "The book text with page numbers. The weakest entry in the inventory."
+    },
+    {
+      "claim": "Bostrom's SSSA statement verbatim and the observer-moment substitution",
+      "needed": "The dissertation around offset 300000 (Ch. 9), or Anthropic Bias Ch. 10. Part 1's definitions are sourced to the dissertation, not the book, and labelled so."
+    },
+    {
+      "claim": "Wheeler 1968, Superspace and the nature of quantum geometrodynamics, pagination",
+      "needed": "A catalogue record or scanned title page. No DOI exists and TWO CONFLICTING page ranges appeared in search results, so pagination was not reproduced."
+    },
+    {
+      "claim": "Anderson 2017 book DOI and the nine-facets claim",
+      "needed": "A fetchable Springer or library record. A DOI appeared in a chapter URL but was NOT verified and is not reproduced. Use arXiv:1009.2157 meanwhile."
+    },
+    {
+      "claim": "Kuchar 2011 full text, including his own statement of the Page-Wootters objections",
+      "needed": "Institutional access; the publisher returned 403. No arXiv version exists."
+    },
+    {
+      "claim": "Isham 1992 part 2, containing section 6.2 on conditional probabilities",
+      "needed": "Check arXiv for a companion identifier. A plausible-looking one was considered and DELIBERATELY NOT USED. Section 6.2 is unread."
+    },
+    {
+      "claim": "CLPW appendices, including hyperfiniteness and trace-property details",
+      "needed": "The unread tail of arXiv:2206.10780 (characters 200000-214074). Nothing in the Q1 answer rests on them."
+    },
+    {
+      "claim": "The exact wording of Gibbons & Hawking's Everett-Wheeler suggestion",
+      "needed": "The original paper. What this run has is a DATABASE PARAPHRASE, not a quotation. Quote the original before building on the Part 3.4 finding."
+    },
+    {
+      "claim": "Azhar, Guth & Namjoo's Jovian rebuttal, section IV-D",
+      "needed": "arXiv:2602.02667 HTML at offset ~100000. The retrieved HTML truncated before it."
+    },
+    {
+      "claim": "Giacomini et al. Methods section II.5 on measurements from a quantum frame",
+      "needed": "arXiv:1712.07207 at offset 100000. Determines whether B4's S4 is genuinely empty or only empty-so-far."
+    },
+    {
+      "claim": "Rovelli 1993, Class. Quantum Grav. 10, 1549, that the CMB's thermal state yields FRW time",
+      "needed": "Journal page or INSPIRE; pre-arXiv. The most cosmologically relevant thermal-time result and the one not retrieved."
+    },
+    {
+      "claim": "Perez, Sahlmann & Sudarsky, Class. Quantum Grav. 23, 2317 (2006)",
+      "needed": "Search by title. A GUESSED arXiv identifier was explicitly rejected during retrieval."
+    },
+    {
+      "claim": "Two CSL bounds attributed to Carlesso et al., Nature Physics 18, 243 (2022) in a search summary",
+      "needed": "The full text's bounds table with per-row references. NOT VERIFIED and deliberately not reproduced."
+    },
+    {
+      "claim": "Whether Kiefer 2004's book contains the contradiction Chua & Callender allege (time before vs only after decoherence)",
+      "needed": "The book. Currently a second-hand attribution."
+    },
+    {
+      "claim": "Whether Huggett & Thebault arXiv:2310.11072 is a direct reply to Chua & Callender",
+      "needed": "The paper's introduction. The arXiv page does not mention them."
+    },
+    {
+      "claim": "Layer-2 identifiers of the no-boundary perturbation dispute (suppression of perturbations)",
+      "needed": "One batch of arXiv abstract fetches. All currently from search digests, so none is listed as a source."
+    },
+    {
+      "claim": "Whether the light-cone-time and causal-patch equivalence is a term-by-term dictionary",
+      "needed": "arXiv:1005.2783 sections 2-4. Recorded as unresolved rather than notational_variant for want of the dictionary."
+    },
+    {
+      "claim": "Whether the stationary measure is covariant, and its time variable",
+      "needed": "The body of arXiv:0812.0005; the abstract does not say."
+    },
+    {
+      "claim": "Whether Hsiang & Hu's technical objection has been answered in print",
+      "needed": "Forward-citation search on arXiv:2112.04092."
+    },
+    {
+      "claim": "Riedel, Zurek & Zwolak on redundant records as a set-selection criterion",
+      "needed": "Would convert the A2a-A3 relation from non-competing to competing."
+    },
+    {
+      "claim": "The Mucino-Okon-Sudarsky critique of relational QM and Rovelli's response",
+      "needed": "Locators verified (arXiv:2105.13338, 2106.03205, 2107.05817); THE ARGUMENTS WERE NOT READ."
+    },
+    {
+      "claim": "Banks and Fischler holographic cosmology with a finite-dimensional de Sitter Hilbert space",
+      "needed": "Their names were NOT searched. Relevant to the type I versus Type II-1 question."
+    },
+    {
+      "claim": "Friederich arXiv:1707.04419 on the observer reference class problem",
+      "needed": "Fetch the abstract page. Surfaced repeatedly and is likely a worthwhile Cluster E member."
+    },
+    {
+      "claim": "A QBist stating the universe has no quantum state in any sense because nobody is outside it",
+      "needed": "A named source. Surfaced in a search summary which itself indicated it was a CRITIC'S position. DO NOT ATTRIBUTE to Fuchs, Mermin or Schack."
+    },
+    {
+      "claim": "Whether approximately decoherent history sets can always be deformed into exactly decoherent ones",
+      "needed": "UNKNOWN. A subagent reported Strasberg et al. as doubting this; the cartographer checked and that half of the claim is NOT supported by the paper's abstract page, which does not address deformation. The set-selection half is correct and is recorded."
+    },
+    {
+      "claim": "Search vocabulary not tried, which BOUNDS the clean negative on any algebraic-observer/measurement-problem link",
+      "needed": "'quantum reference frame' with 'preferred basis'; 'Everett' with 'crossed product'; 'decoherence' with 'type II-1'; author searches on Ruetsche, Fraser, Wallace, Rovelli. The negative should not be cited as absolute."
+    },
+    {
+      "claim": "Journal references for ~21 preprints whose arXiv pages carry no journal line",
+      "needed": "Publisher pages. Listed in OUTPUT.md Part 6.3. For several, published versions probably exist. NONE IS GUESSED."
+    }
+  ]
+}
