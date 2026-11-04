@@ -31,6 +31,20 @@ Include `META.yaml` with the exact model id and the git sha of the prompt
 as used. A run whose prompt cannot be reconstructed from the repository is
 not a data point and will be closed.
 
+Run the validator and record its result in your `REVIEW.md`:
+
+    python protocol/validate.py runs/<run>/OUTPUT.json
+
+A deliberate rule violation is acceptable when the contract gives you no
+honest way to comply; say so in `REVIEW.md` and leave it visible. An
+undeclared violation will be found, because the check is mechanical.
+
+For an adversary run, stage the permitted inputs in their own directory and
+give the agent no repository checkout. A withholding that depends on the
+agent choosing not to read a file it holds is not a withholding, and the
+run cannot then claim it did not see the seed. Record what was staged in an
+`INPUTS.md` beside the run.
+
 If the run was expensive, say so in `META.yaml` notes. Cost per usable
 finding is part of what the method experiment is measuring.
 
