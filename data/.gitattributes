@@ -1,0 +1,4 @@
+# Checksum manifests are byte-exact records. Git CRLF conversion corrupts
+# them: see michaelClucas/The-Observer-Problem#11, whose fix is not yet on main. Scoped here so a
+# root-level fix does not conflict with it.
+*.sha256 -text
