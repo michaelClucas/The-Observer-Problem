@@ -155,3 +155,71 @@ If instead the shapes come out inseparable at the fixed background, that is
 a D3-or-D4 result on the field's one empirically live conflict, and the
 plan says in terms that the package does not need the comparison to come
 out any particular way.
+
+---
+
+## Addendum, same day, still before any fit result was seen
+
+Written while implementing the fit, committed before it was run. The git
+log shows this addendum's commit preceding the commit that carries the
+result. Recorded as an addendum rather than edited into the text above,
+because the text above is what was committed first and rewriting it would
+destroy the evidence of ordering.
+
+**The small-k regularisation, which the cuts above failed to anticipate.**
+
+A correction `(k/k_*)^m` with `m` negative diverges as `k -> 0`. camb
+integrates the primordial spectrum from `k_min ~ 1e-6 Mpc^-1`, far below
+anything the CMB measures, and at `k = 1e-6` the factor `(k/k_*)^-10` is
+about `1e47`. So the uncorrected form cannot be handed to camb: it would
+either make `P(k)` negative or be dominated by modes outside the domain on
+which the papers derive it. Martin & Vennin derive these corrections for
+super-Hubble modes of cosmological interest, not for `k` forty decades
+below the horizon.
+
+**The choice:** the correction factor is evaluated as published for
+`k >= k_reg` and held at its `k_reg` value for `k < k_reg`, with
+`k_reg = 1e-4 Mpc^-1`. That is about a decade below the largest scale the
+CMB constrains, so it is outside the window the data speaks to and inside
+the window the derivation covers.
+
+**Why `1e-4` and not something tuned:** `l ~ 2` corresponds to
+`k ~ l / D_A ~ 1.4e-4 Mpc^-1` at the last-scattering distance, so `1e-4`
+sits just below the largest observable scale. Fixed now, not after seeing
+which value gives a tidier answer.
+
+**And it is tested rather than asserted.** The fit is run at
+`k_reg = 1e-4` and again at `k_reg = 3e-5`, and both are reported. For the
+shallow indices the answer must be insensitive to `k_reg`, since those
+corrections put no weight at small `k`; for `m = -10` it will be sensitive,
+and **the size of that sensitivity is itself the result** for that branch:
+a constraint that depends on an unobservable regularisation is not a
+constraint on the sky, and if that is what comes out it will be reported as
+such rather than as a number.
+
+**Positivity:** `P(k)` is required positive everywhere. Any amplitude that
+violates it is outside the perturbative domain in which both corrections
+were derived, and is reported as excluded by the derivation rather than by
+the data. The two exclusions are different things and are not merged.
+
+**The amplitude's reference scale** is `k_*= 0.05 Mpc^-1`, the Planck
+pivot, so `A_C` and `A_D` are the fractional corrections at the pivot.
+Stated because a constraint on an amplitude is meaningless without the
+scale it is quoted at.
+
+**One further method note, so the statistic is interpretable.** `P(k)` is
+linear in each amplitude and the transfer functions do not depend on them,
+so `D_l` is linear in the amplitudes and `chi^2` is exactly quadratic in
+them. The fit therefore computes one `D_l` response vector per index and
+builds the curvature matrix from those, rather than sampling. Linearity is
+checked in the script by comparing the response at `2h` against twice the
+response at `h`; if that check fails the quadratic form is not valid and
+the numbers are not reported.
+
+**What the correlation coefficient will be used for.** For each pair of
+indices the two-amplitude curvature matrix gives `sigma(A_C)`,
+`sigma(A_D)` and their correlation `rho`. A `|rho|` very close to 1 means
+the data cannot separate the two shapes, which is a D3-or-D4 statement; a
+modest `|rho|` means it can. The threshold is **not** fixed here, because
+the honest output is the number itself and a threshold chosen now would
+add nothing the number does not say.
