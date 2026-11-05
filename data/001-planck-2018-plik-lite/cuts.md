@@ -223,3 +223,39 @@ the data cannot separate the two shapes, which is a D3-or-D4 statement; a
 modest `|rho|` means it can. The threshold is **not** fixed here, because
 the honest output is the number itself and a threshold chosen now would
 add nothing the number does not say.
+
+## Addendum 2, same day, still before any fit result was seen
+
+Committed before the fit that produced the result; the git log is the
+evidence. Recorded for the same reason as addendum 1: a choice made during
+implementation, not after seeing an answer.
+
+**A high-k regularisation is needed too, for the same reason as the low-k
+one.** A correction `(k/k_*)^m` with `m` positive diverges as `k` grows,
+and camb integrates to `k_max = 10 Mpc^-1`, about fifty times beyond the
+smallest scale the CMB constrains. The `m = +3` branch at `k = 10` is a
+factor `(200)^3 = 8e6` above its pivot value. Feeding that to camb either
+breaks the nonlinear fitting formula - the first attempt failed with
+`HMCode INTEGRATE, Integration timed out` - or produces a response
+dominated by scales the data does not see.
+
+**The choice:** the correction factor is evaluated as published for
+`k_reg <= k <= k_reg_hi` and held constant outside that window on both
+sides, with `k_reg_hi = 1 Mpc^-1`. That is about five times beyond the
+CMB's reach at `l = 2508`, so the window contains everything the data
+speaks to and nothing it does not.
+
+**The amplitude step is scaled per index, not fixed.** The response step
+`h` for index `m` is chosen so the correction factor is at most `1e-3`
+anywhere on the integration grid. This is a numerical-conditioning choice
+with no effect on the answer, because `D_l` is linear in the amplitude and
+the response per unit amplitude is therefore independent of `h` - which the
+script's linearity check verifies rather than assumes. A fixed `h` would
+instead put the steep branches thirty orders of magnitude outside the
+perturbative domain in which both corrections were derived, which is what
+the first run did.
+
+**And it is tested on the same terms as addendum 1.** `k_reg_hi` matters
+only for positive `m`. If the `m = +3` branch's constraint turns out
+sensitive to it, that constraint is set by modes the CMB does not measure
+and will be reported as such rather than as a number.
