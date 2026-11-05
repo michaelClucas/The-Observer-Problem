@@ -149,6 +149,24 @@ Rules that apply to everything you produce:
   `[INFERENCE]` means you derived it and must name the premises;
   `[UNKNOWN]` means you do not know. A citation you did not fetch is never
   `[SOURCED]`.
+- **Use the repository's venv, not system Python.** `.venv/Scripts/python`
+  on this machine; nothing is installed globally and `import numpy` from
+  system Python fails. The venv is gitignored, so if it is missing rebuild
+  it: `python -m venv .venv` then
+  `.venv/Scripts/python -m pip install -r env/requirements.txt`. If you need
+  a package that is not pinned, install it, verify the import actually
+  works, and add it with the version you ran.
+- **`classy`, `healpy` and `clik` are unavailable on this platform** and
+  `env/requirements.txt` records what was tried for each. camb substitutes
+  for CLASS; the pure-Python cobaya components substitute for clik; nothing
+  substitutes for healpy, so pixel-space analysis does not run here. Do not
+  work around a missing package by writing your own - say the work does not
+  run on this machine.
+- **The WP-3 likelihood already evaluates.** `verify/planck_likelihood.py`
+  builds plik_lite TTTEEE plus lowl TT and EE_sroll2 and reproduces
+  chi2 = 583.935 / 23.419 / 390.021 at the Planck 2018 best fit. Run it
+  before trusting the pipeline, and extend it rather than writing a second
+  one.
 - **Schema v1 discipline.** `sources` supports a positive claim;
   `established_by` records what you read to establish an absence, and its
   `read` field has to say what was read. Where the read was truncated the
