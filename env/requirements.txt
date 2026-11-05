@@ -1,0 +1,60 @@
+# Verified on this machine, 2026-11-05.
+#
+# Every version below was installed into a clean venv on Python 3.14.7
+# (CPython, 64-bit, Windows) and imported successfully. camb was
+# additionally RUN, not merely imported, because importing a Fortran
+# extension proves little:
+#
+#   camb.set_params(H0=67.5, ombh2=0.022, omch2=0.122, ns=0.965, As=2e-9)
+#   -> rdrag = 146.989 Mpc, thetastar = 1.04465
+#
+# Those are the same two figures the sibling repository records, from an
+# independently built venv. The agreement is the check.
+#
+# Reproduce with:
+#   python -m venv .venv
+#   .venv/Scripts/python -m pip install -r env/requirements.txt
+#   .venv/Scripts/python -I -c "import camb; ..."   # as above
+
+numpy==2.5.4
+scipy==1.18.1
+matplotlib==3.11.2
+pandas==3.1.1
+astropy==8.0.2
+sympy==1.14.0
+emcee==3.1.6
+corner==2.3.0
+getdist==1.7.7
+dynesty==3.1.0
+iminuit==2.33.0
+camb==2.0.5
+cobaya==3.6.2
+
+# Pinned identically to the sibling repository on purpose. The two
+# programmes should not disagree because of a library version.
+
+# NOT AVAILABLE on this platform, each tried and recorded:
+#
+# classy  - the CLASS Python wrapper. pip reports no distribution for any
+#           version. Source-only, needs a C toolchain. camb substitutes for
+#           every use in this plan: transfer functions, CMB spectra,
+#           theta_star, sound horizon.
+#
+# healpy  - "Failed to build installable wheels". healpy does not support
+#           Windows; it needs HEALPix and cfitsio built natively. No work
+#           package here requires map-level analysis: WP-6 uses published
+#           f_NL constraints, and WP-3 uses the compressed plik_lite
+#           likelihood at the spectrum level. If a package ever needs
+#           pixel-space maps, it does not run on this machine and the plan
+#           must say so rather than working around it.
+#
+# clik    - the Planck likelihood C code that cobaya's non-native
+#           planck_2018_* components wrap. Not attempted: it does not build
+#           on Windows. Use the pure-Python variants instead, which is what
+#           cobaya-install fetched:
+#             planck_2018_highl_plik.TTTEEE_lite_native
+#             planck_2018_lowl.TT_native
+#           WP-3 is written against plik_lite, so this costs nothing.
+#
+# Do not add any of the three to this file without installing it
+# successfully and recording how.
