@@ -126,20 +126,30 @@ out, and never fix a job that looks broken.
 | --- | --- | --- | --- |
 | `001-squeezed-state-invariants` | **ready**, sympy cross-checked | 1 | nothing; independent |
 | `002-cosmic-variance-floor` | **ready**, sympy cross-checked | 1 | nothing; independent |
-| `003-power-spectrum-corrections` | **not written** | 1 | needs the CSL and Lindblad mode equations read from primary sources first |
+| `003-power-spectrum-corrections` | **ready**, sympy cross-checked | 1 | nothing; the mode equations were read 2026-11-05 |
 
 001 and 002 are ready and independent, so they queue together on day one.
 
-**003 is deliberately not written yet.** It is the job WP-3 in
-`../docs/RESEARCH-PLAN.md` depends on: reducing the CSL and open-EFT
-corrections to the curvature power spectrum to one parameterisation. It
-cannot be specified without the mode equations from
-`arXiv:1207.2086`, `arXiv:1906.04405` and `arXiv:1801.09949`, which have
-not been read at that level of detail. Writing a job around guessed
-equations would produce a confident wrong answer, which is the one outcome
-this protocol is built to prevent. The validation target is already known
-and recorded in the plan: the job must reproduce the published CSL branch
-indices (one scale-invariant, one of index 4, and -9 in the Martin &
-Vennin 2020 regime).
+**003 was written on 2026-11-05**, after the three papers it needs were
+read at primary source level as LaTeX source: `arXiv:1906.04405` for the
+CSL third-order ODE, its source function and `alpha_k`, `beta_k` in both
+epochs; `arXiv:1801.09949` for the open-EFT correction; `arXiv:1207.2086`
+for the two-branch validation target. The equations are reproduced in full
+in its `JOB.md`, so the job stands on what was read and not on what the
+papers were reported to say.
+
+The structural fact that makes it well-posed was not known when this file
+said the job could not be specified: **both corrections are the same
+third-order ODE for `P_vv` with the same free-theory Green function, and
+differ only in the source function.** The common parameterisation WP-3
+needs is therefore a consequence rather than a fitted ansatz, and what
+Maple is asked for is the super-Hubble asymptotics of one integral per
+source plus the degeneracy structure of the parameter maps.
+
+Its validation target is the published set of spectral indices: `m = -1`
+(MV 2020, inflation crossing, `n_S = 0`), `m = -10` (MV 2020, radiation
+crossing, `n_S = -9`), `m = 3` (MVP 2012's non-scale-invariant branch,
+`n_S = 4`), and `m_D = p + 2n - 7` with scale invariance at `p = 7 - 2n`
+(MV 2018).
 
 Nothing in the plan blocks on more than one round trip per day.
