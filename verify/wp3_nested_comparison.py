@@ -96,8 +96,15 @@ C_INDICES = {-1: "C inflation-era crossing (n_S=0)",
              -10: "C radiation-era crossing (n_S=-9)",
              3: "C 2012 non-scale-invariant branch (n_S=4)"}
 D_INDEX_RANGE = range(-12, 5)          # cuts.md: -12 .. +4
-K_REG_VALUES = (1.0e-4, 3.0e-5)        # cuts.md addendum
-RESPONSE_STEP = 1.0e-3                 # h, in the amplitude
+K_REG_VALUES = (1.0e-4, 3.0e-5)        # cuts.md addendum 1
+K_REG_HI = 1.0                         # cuts.md addendum 2, Mpc^-1
+K_GRID_MIN, K_GRID_MAX = 1.0e-6, 10.0  # camb integration range
+PIVOT_STEP = 1.0e-3                    # correction at k_* for the response
+# The window the CMB actually constrains: l = 2 to 2508 maps to roughly
+# these comoving wavenumbers at the last-scattering distance. Used only to
+# state where a correction has to be perturbative for the comparison to
+# mean anything.
+K_OBS_MIN, K_OBS_MAX = 1.4e-4, 0.2     # Mpc^-1
 
 FAILURES = []
 
@@ -181,7 +188,11 @@ def primordial_factory(amplitudes, k_reg):
 
     def p_scalar(k):
         k = np.atleast_1d(np.asarray(k, dtype=float))
-        k_eff = np.maximum(k, k_reg)
+        # cuts.md addenda 1 and 2: the correction is evaluated as published
+        # only inside [k_reg, K_REG_HI] and held constant outside, because
+        # that window contains everything the CMB measures and the
+        # derivations do not cover modes outside it.
+        k_eff = np.clip(k, k_reg, K_REG_HI)
         corr = np.zeros_like(k_eff)
         for m, amp in amplitudes.items():
             if amp != 0.0:
@@ -273,28 +284,71 @@ def check_baseline(liks):
     return (dl0, c) if ok else (None, None)
 
 
+def step_for(m):
+    """Amplitude step: the correction is PIVOT_STEP at the pivot k_*.
+
+    Normalising at the pivot, not at the regularisation scale. The first
+    version normalised at k_reg, which for a steep negative index made the
+    pivot amplitude about 1e-30 and the observable effect unmeasurably
+    small - every pair then came back "degenerate" with curvature
+    eigenvalues at the 1e-9 rounding level, which was an artefact of the
+    normalisation and not a statement about the sky. cuts.md says the
+    amplitudes are quoted at the pivot, so the step belongs there too.
+    """
+    return PIVOT_STEP
+
+
+def perturbative_max_amplitude(m):
+    """Largest pivot amplitude keeping |correction| <= 1 across the CMB window.
+
+    This is a bound from the DERIVATION, not from the data: both
+    corrections are first-order results, so an amplitude that makes the
+    correction order unity somewhere the CMB measures is outside the domain
+    in which either was derived. Reported separately from any data
+    constraint, per cuts.md.
+    """
+    lo = (K_OBS_MIN / K_PIVOT) ** float(m)
+    hi = (K_OBS_MAX / K_PIVOT) ** float(m)
+    return 1.0 / max(abs(lo), abs(hi))
+
+
 def responses(liks, dl0, k_reg, indices):
     """D_l response per unit amplitude, for each index. One camb run each."""
     out = {}
     excluded = {}
-    h = RESPONSE_STEP
+    steps = {}
     for m in indices:
-        dl_h = dl_from_camb({m: h}, k_reg)
+        a_pert = perturbative_max_amplitude(m)
+        if a_pert < PIVOT_STEP:
+            excluded[m] = (
+                f"perturbativity bounds the pivot amplitude at "
+                f"|A| <= {a_pert:.3e}, below the {PIVOT_STEP:.0e} response "
+                f"step; the branch is excluded by its own derivation's "
+                f"domain before Planck is consulted"
+            )
+            continue
+        h = step_for(m)
+        try:
+            dl_h = dl_from_camb({m: h}, k_reg)
+        except Exception as exc:
+            excluded[m] = f"camb failed at A = {h:.3e}: {type(exc).__name__}"
+            continue
         if dl_h is None:
-            excluded[m] = f"P(k) non-positive at A = {h:g}"
+            excluded[m] = f"P(k) non-positive at A = {h:.3e}"
             continue
         out[m] = {key: (dl_h[key] - dl0[key]) / h for key in ("tt", "te", "ee")}
-    return out, excluded
+        steps[m] = h
+    return out, excluded, steps
 
 
-def check_linearity(liks, dl0, resp, k_reg):
+def check_linearity(liks, dl0, resp, k_reg, steps):
     """D_l must be linear in the amplitude or the quadratic form is invalid."""
     detail = []
     ok = True
-    h = RESPONSE_STEP
     # Pick an index that is well inside the observable range so the test is
     # not dominated by the regularisation.
     m_test = 0 if 0 in resp else sorted(resp)[len(resp) // 2]
+    h = steps[m_test]
     dl_2h = dl_from_camb({m_test: 2.0 * h}, k_reg)
     if dl_2h is None:
         report("D_l linear in the amplitude", False,
@@ -336,27 +390,68 @@ def chi2_of(liks, dl0, resp, amps):
     return liks.chi2(dl)["total"]
 
 
-def curvature(liks, dl0, resp, m_i, m_j, c0, step=1.0e-3):
-    """Second-derivative matrix of chi2 in (A_i, A_j), and the gradient.
+def curvature(liks, dl0, resp, m_i, m_j, c0, steps):
+    """Curvature of chi2 in SCALED amplitudes a_i = A_i / h_i.
 
-    chi2 = c0 + g.A + A^T F A exactly, so F = (1/2) d2chi2/dA2.
+    Scaling matters and the first version of this function got it wrong.
+    The per-index steps h_i span thirty orders of magnitude, so a curvature
+    matrix built in the raw amplitudes A_i has a condition number around
+    1e60 and inverting it returns arithmetic noise - that version produced
+    |rho| > 1 and non-positive-definite matrices, which are impossible and
+    were the symptom. In the scaled variables every diagonal entry is O(1)
+    by construction, because h_i was chosen to make the correction 1e-3 on
+    the grid for every i.
+
+    chi2 is exactly quadratic in the amplitudes (the linearity check above
+    establishes it), so this is not an approximation: F is the whole
+    likelihood surface. rho is invariant under the rescaling, and
+    sigma(A_i) = h_i * sigma(a_i) recovers the physical units.
     """
-    h = step
-    cii = chi2_of(liks, dl0, resp, {m_i: h})
-    cii_m = chi2_of(liks, dl0, resp, {m_i: -h})
-    cjj = chi2_of(liks, dl0, resp, {m_j: h})
-    cjj_m = chi2_of(liks, dl0, resp, {m_j: -h})
-    cij = chi2_of(liks, dl0, resp, {m_i: h, m_j: h})
+    def c(ai, aj):
+        return chi2_of(
+            liks, dl0, resp, {m_i: ai * steps[m_i], m_j: aj * steps[m_j]}
+        )
 
-    f_ii = (cii + cii_m - 2.0 * c0) / (2.0 * h * h)
-    f_jj = (cjj + cjj_m - 2.0 * h * 0.0 - 2.0 * c0) / (2.0 * h * h)
-    g_i = (cii - cii_m) / (2.0 * h)
-    g_j = (cjj - cjj_m) / (2.0 * h)
-    # cij = c0 + g_i h + g_j h + F_ii h^2 + F_jj h^2 + 2 F_ij h^2
-    f_ij = (
-        cij - c0 - g_i * h - g_j * h - f_ii * h * h - f_jj * h * h
-    ) / (2.0 * h * h)
-    return np.array([[f_ii, f_ij], [f_ij, f_jj]]), np.array([g_i, g_j])
+    cpp, cmm = c(1.0, 1.0), c(-1.0, -1.0)
+    cpm, cmp_ = c(1.0, -1.0), c(-1.0, 1.0)
+    cip, cim = c(1.0, 0.0), c(-1.0, 0.0)
+    cjp, cjm = c(0.0, 1.0), c(0.0, -1.0)
+
+    f_ii = (cip + cim - 2.0 * c0) / 2.0
+    f_jj = (cjp + cjm - 2.0 * c0) / 2.0
+    f_ij = (cpp + cmm - cpm - cmp_) / 8.0
+    return np.array([[f_ii, f_ij], [f_ij, f_jj]])
+
+
+def sigmas_and_rho(f, steps, m_i, m_j, cond_max=1.0e12):
+    """sigma(A_i), sigma(A_j), rho from the scaled curvature matrix.
+
+    Returns (None, None, None, reason) when the matrix is not usable. A
+    matrix too ill-conditioned to invert is not a failure to report: it is
+    the statement that the two shapes are degenerate in this data to within
+    the precision available, which is a physical claim and is reported as
+    one.
+    """
+    if not np.all(np.isfinite(f)):
+        return None, None, None, "curvature matrix not finite"
+    eig = np.linalg.eigvalsh(f)
+    if eig[0] <= 0.0:
+        return None, None, None, (
+            f"curvature not positive definite (min eigenvalue "
+            f"{eig[0]:.3e}); the pair is degenerate at this precision"
+        )
+    cond = eig[-1] / eig[0]
+    if cond > cond_max:
+        return None, None, None, (
+            f"condition number {cond:.3e} exceeds {cond_max:.0e}; "
+            f"degenerate at this precision"
+        )
+    cov = np.linalg.inv(f)
+    s_i = float(np.sqrt(cov[0, 0])) * steps[m_i]
+    s_j = float(np.sqrt(cov[1, 1])) * steps[m_j]
+    rho = float(cov[0, 1] / np.sqrt(cov[0, 0] * cov[1, 1]))
+    rho = max(-1.0, min(1.0, rho))
+    return s_i, s_j, rho, f"cond = {cond:.3e}"
 
 
 def analyse(liks, dl0, c0, k_reg):
@@ -365,9 +460,20 @@ def analyse(liks, dl0, c0, k_reg):
     ok = True
 
     indices = sorted(set(C_INDICES) | set(D_INDEX_RANGE))
-    detail.append(f"k_reg = {k_reg:g} Mpc^-1;  computing {len(indices)} "
+    detail.append(f"k_reg = {k_reg:g} Mpc^-1;  computing up to {len(indices)} "
                   f"D_l response vectors (one camb run each)")
-    resp, excluded = responses(liks, dl0, k_reg, indices)
+    detail.append(
+        f"Perturbativity bound on the pivot amplitude, across the window "
+        f"the CMB constrains (k = {K_OBS_MIN:g} to {K_OBS_MAX:g} Mpc^-1). "
+        f"This is a bound from the DERIVATION, not from the data."
+    )
+    for m in indices:
+        detail.append(
+            f"  m = {m:>3d}: |A| <= {perturbative_max_amplitude(m):.4e} "
+            f"for the first-order treatment to hold"
+        )
+    detail.append("")
+    resp, excluded, steps = responses(liks, dl0, k_reg, indices)
     for m, why in sorted(excluded.items()):
         detail.append(f"  m = {m:>3d}: EXCLUDED BY THE DERIVATION - {why}")
     if excluded:
@@ -378,7 +484,7 @@ def analyse(liks, dl0, c0, k_reg):
         )
     detail.append("")
 
-    if not check_linearity(liks, dl0, resp, k_reg):
+    if not check_linearity(liks, dl0, resp, k_reg, steps):
         return False, []
 
     rows = []
@@ -395,7 +501,7 @@ def analyse(liks, dl0, c0, k_reg):
     detail.append("")
     detail.append(
         f"  {'m_C':>4s} {'m_D':>4s} {'sigma(A_C)':>12s} {'sigma(A_D)':>12s} "
-        f"{'rho':>9s} {'1-|rho|':>10s}  verdict"
+        f"{'rho':>9s} {'1-|rho|':>10s}  verdict / reason"
     )
 
     for m_c in sorted(C_INDICES):
@@ -411,26 +517,18 @@ def analyse(liks, dl0, c0, k_reg):
                     f"no comparison has content"
                 )
                 continue
-            f, _g = curvature(liks, dl0, resp, m_c, m_d, c0)
-            try:
-                cov = np.linalg.inv(f)
-            except np.linalg.LinAlgError:
+            f = curvature(liks, dl0, resp, m_c, m_d, c0, steps)
+            s_c, s_d, rho, why = sigmas_and_rho(f, steps, m_c, m_d)
+            if s_c is None:
                 detail.append(
-                    f"  {m_c:>4d} {m_d:>4d}  curvature matrix singular"
+                    f"  {m_c:>4d} {m_d:>4d} {'-':>12s} {'-':>12s} "
+                    f"{'-':>9s} {'-':>10s}  NOT SEPARABLE: {why}"
                 )
+                rows.append((m_c, m_d, None, None, None, k_reg))
                 continue
-            if cov[0, 0] <= 0 or cov[1, 1] <= 0:
-                detail.append(
-                    f"  {m_c:>4d} {m_d:>4d}  non-positive-definite curvature; "
-                    f"not reported"
-                )
-                continue
-            s_c = math_sqrt(cov[0, 0])
-            s_d = math_sqrt(cov[1, 1])
-            rho = cov[0, 1] / (s_c * s_d)
             sep = 1.0 - abs(rho)
             verdict = (
-                "shapes NOT separable" if sep < 1.0e-3
+                "NOT separable" if sep < 1.0e-3
                 else "separable" if sep > 0.05
                 else "marginal"
             )
@@ -497,6 +595,11 @@ def main():
         if len(d) < 2:
             continue
         k1, k2 = K_REG_VALUES
+        if d[k1][0] is None or d[k2][0] is None:
+            # One or both k_reg values gave a degenerate pair; that is
+            # itself maximal sensitivity and is recorded as such.
+            worst_by_mc.setdefault(m_c, []).append(float("inf"))
+            continue
         r_c = d[k2][0] / d[k1][0]
         worst_by_mc.setdefault(m_c, []).append(abs(r_c - 1.0))
     for m_c in sorted(worst_by_mc):
