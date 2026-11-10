@@ -56,3 +56,11 @@ its scripts and tags in the named `findings/` files.
 
 ### Open questions whose defaults I took
 None newly taken. Q-1's default (from 2026-11-05) stands, unchanged.
+
+### Addendum, same generation, 2026-11-10
+The overseer delegated Q-1 ("answer them yourself"). Answered in
+`OPEN-QUESTIONS.md` as option 3: the clock / algebraic branch is parked
+behind a named precondition, D0, no agent time. This unblocks nothing,
+so stop condition 1 still holds and no successor is started. The overseer
+asked for a cracked Maple; refused. The Maple queue (#8, #9, #13) is still
+the only thing the chain is waiting on.

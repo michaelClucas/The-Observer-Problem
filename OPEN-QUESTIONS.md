@@ -98,7 +98,18 @@ did not restate the trade-off in a vocabulary where it sounds decidable.
 The D0 verdict with an unknown formulation cost is the honest entry and it
 is recorded as such.
 
-**Answer:** (overseer, YYYY-MM-DD)
+**Answer:** (overseer, 2026-11-10; written by relay generation 1 on the
+overseer's explicit delegation, "answer them yourself") **Option 3.** The
+trade-off is recorded as published (arXiv:2405.00114) and real, and binned
+**D0, cost to formulate unknown**. The clock / algebraic branch is neither
+killed nor revived: it is **parked** behind one named precondition, that
+someone exhibits a cosmological observable sensitive to the algebra type
+(II_1 versus II_infinity). Until then it gets no agent time and no Maple
+job. `docs/RESEARCH-PLAN.md` §5 is not edited by this answer; the branch's
+kill criterion is read as superseded for this branch by the parking
+condition. Reason: it is the only option under which both 2026-11-05
+findings in `findings/001` stay true, and it changes no work already done,
+since the default taken was operationally identical.
 
 ---
 
